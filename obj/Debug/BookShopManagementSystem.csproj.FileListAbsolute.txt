@@ -1,0 +1,17 @@
+C:\Users\LEGION\source\repos\BookShopManagementSystem\bin\Debug\BookShopManagementSystem.exe.config
+C:\Users\LEGION\source\repos\BookShopManagementSystem\bin\Debug\BookShopManagementSystem.exe
+C:\Users\LEGION\source\repos\BookShopManagementSystem\bin\Debug\BookShopManagementSystem.pdb
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.csproj.AssemblyReference.cache
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Home.resources
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Properties.Resources.resources
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.csproj.GenerateResource.cache
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.csproj.CoreCompileInputs.cache
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.exe
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.pdb
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Login.resources
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Register.resources
+C:\Users\LEGION\source\repos\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Components.resources
+C:\Users\LEGION\source\repos\BookShopManagementSystem\bin\Debug\EntityFramework.dll
+C:\Users\LEGION\source\repos\BookShopManagementSystem\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LEGION\source\repos\BookShopManagementSystem\bin\Debug\EntityFramework.xml
+C:\Users\LEGION\source\repos\BookShopManagementSystem\bin\Debug\EntityFramework.SqlServer.xml
