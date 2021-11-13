@@ -43,15 +43,16 @@ namespace BookShopManagementSystem
         private void btn_register_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
-            string name = tb_name.Text;
-            string surname = tb_surname.Text;
-            string adress = tb_adress.Text;
-            string email = tb_email.Text;
-            string password = tb_pass.Text;
-            string passwordAgain = tb_pass_confirm.Text;
+            string name = tb_name.Text.Trim();
+            string surname = tb_surname.Text.Trim();
+            string adress = tb_adress.Text.Trim();
+            string email = tb_email.Text.Trim();
+            string password = tb_pass.Text.Trim();
+            string passwordAgain = tb_pass_confirm.Text.Trim();
             bool isSeller = cb_is_seller.Checked;
             if (!(String.IsNullOrEmpty(Name) || String.IsNullOrEmpty(surname) ||
-                                                 String.IsNullOrEmpty(adress) || String.IsNullOrEmpty(email) ||
+                                                 String.IsNullOrEmpty(adress) ||
+                                                 String.IsNullOrEmpty(email) ||
                                                  String.IsNullOrEmpty(password)))
             {
                 if (_emailRegex.IsMatch(email))
@@ -89,5 +90,7 @@ namespace BookShopManagementSystem
             lbl_status.Text = sb.ToString();
             lbl_status.ForeColor = Color.Maroon;
         }
+
+
     }
 }

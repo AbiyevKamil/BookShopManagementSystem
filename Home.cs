@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -48,7 +48,7 @@ namespace BookShopManagementSystem
                         currentForm = register;
                         break;
                     case "LOGIN":
-                        Login login = new Login();
+                        Login login = new Login(this);
                         currentForm = login;
                         break;
                     default:

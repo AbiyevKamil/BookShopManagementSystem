@@ -64,11 +64,18 @@
     </Compile>
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="Helper\ImageHelper.cs" />
+    <Compile Include="Helper\IniFile.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -80,6 +87,7 @@
     <Compile Include="Model\DataContext.cs" />
     <Compile Include="Model\DbInitializer.cs" />
     <Compile Include="Model\ImageModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\RegisterModel.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
@@ -101,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Loading.resx">
+      <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

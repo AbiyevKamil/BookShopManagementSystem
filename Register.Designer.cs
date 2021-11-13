@@ -102,9 +102,10 @@ namespace BookShopManagementSystem
             this.cb_show_pass.Location = new System.Drawing.Point(299, 404);
             this.cb_show_pass.Name = "cb_show_pass";
             this.cb_show_pass.Size = new System.Drawing.Size(165, 29);
-            this.cb_show_pass.TabIndex = 85;
+            this.cb_show_pass.TabIndex = 6;
             this.cb_show_pass.Text = "Show password";
             this.cb_show_pass.UseVisualStyleBackColor = true;
+            this.cb_show_pass.CheckedChanged += new System.EventHandler(this.cb_show_pass_CheckedChanged);
             // 
             // lbl_pass_again
             // 
@@ -126,7 +127,7 @@ namespace BookShopManagementSystem
             this.pnl_surname.Location = new System.Drawing.Point(597, 37);
             this.pnl_surname.Name = "pnl_surname";
             this.pnl_surname.Size = new System.Drawing.Size(305, 45);
-            this.pnl_surname.TabIndex = 83;
+            this.pnl_surname.TabIndex = 10;
             // 
             // tb_surname
             // 
@@ -137,7 +138,7 @@ namespace BookShopManagementSystem
             this.tb_surname.Location = new System.Drawing.Point(10, 10);
             this.tb_surname.Name = "tb_surname";
             this.tb_surname.Size = new System.Drawing.Size(286, 27);
-            this.tb_surname.TabIndex = 39;
+            this.tb_surname.TabIndex = 1;
             // 
             // pnl_name
             // 
@@ -147,7 +148,7 @@ namespace BookShopManagementSystem
             this.pnl_name.Location = new System.Drawing.Point(294, 37);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(297, 45);
-            this.pnl_name.TabIndex = 79;
+            this.pnl_name.TabIndex = 9;
             // 
             // tb_name
             // 
@@ -158,7 +159,7 @@ namespace BookShopManagementSystem
             this.tb_name.Location = new System.Drawing.Point(6, 10);
             this.tb_name.Name = "tb_name";
             this.tb_name.Size = new System.Drawing.Size(286, 27);
-            this.tb_name.TabIndex = 39;
+            this.tb_name.TabIndex = 0;
             // 
             // pnl_pass_confirm
             // 
@@ -168,7 +169,7 @@ namespace BookShopManagementSystem
             this.pnl_pass_confirm.Location = new System.Drawing.Point(294, 349);
             this.pnl_pass_confirm.Name = "pnl_pass_confirm";
             this.pnl_pass_confirm.Size = new System.Drawing.Size(608, 45);
-            this.pnl_pass_confirm.TabIndex = 82;
+            this.pnl_pass_confirm.TabIndex = 14;
             // 
             // tb_pass_confirm
             // 
@@ -182,7 +183,7 @@ namespace BookShopManagementSystem
             this.tb_pass_confirm.Location = new System.Drawing.Point(5, 10);
             this.tb_pass_confirm.Name = "tb_pass_confirm";
             this.tb_pass_confirm.Size = new System.Drawing.Size(596, 27);
-            this.tb_pass_confirm.TabIndex = 55;
+            this.tb_pass_confirm.TabIndex = 5;
             // 
             // pnl_pass
             // 
@@ -192,7 +193,7 @@ namespace BookShopManagementSystem
             this.pnl_pass.Location = new System.Drawing.Point(294, 270);
             this.pnl_pass.Name = "pnl_pass";
             this.pnl_pass.Size = new System.Drawing.Size(608, 45);
-            this.pnl_pass.TabIndex = 81;
+            this.pnl_pass.TabIndex = 13;
             // 
             // tb_pass
             // 
@@ -206,7 +207,7 @@ namespace BookShopManagementSystem
             this.tb_pass.Location = new System.Drawing.Point(5, 10);
             this.tb_pass.Name = "tb_pass";
             this.tb_pass.Size = new System.Drawing.Size(596, 27);
-            this.tb_pass.TabIndex = 55;
+            this.tb_pass.TabIndex = 4;
             // 
             // panel2
             // 
@@ -216,7 +217,7 @@ namespace BookShopManagementSystem
             this.panel2.Location = new System.Drawing.Point(294, 192);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(608, 45);
-            this.panel2.TabIndex = 80;
+            this.panel2.TabIndex = 12;
             // 
             // tb_adress
             // 
@@ -230,7 +231,7 @@ namespace BookShopManagementSystem
             this.tb_adress.Location = new System.Drawing.Point(6, 13);
             this.tb_adress.Name = "tb_adress";
             this.tb_adress.Size = new System.Drawing.Size(596, 27);
-            this.tb_adress.TabIndex = 43;
+            this.tb_adress.TabIndex = 3;
             // 
             // pnl_email
             // 
@@ -240,7 +241,7 @@ namespace BookShopManagementSystem
             this.pnl_email.Location = new System.Drawing.Point(294, 112);
             this.pnl_email.Name = "pnl_email";
             this.pnl_email.Size = new System.Drawing.Size(608, 45);
-            this.pnl_email.TabIndex = 78;
+            this.pnl_email.TabIndex = 11;
             // 
             // tb_email
             // 
@@ -254,7 +255,7 @@ namespace BookShopManagementSystem
             this.tb_email.Location = new System.Drawing.Point(5, 11);
             this.tb_email.Name = "tb_email";
             this.tb_email.Size = new System.Drawing.Size(596, 27);
-            this.tb_email.TabIndex = 43;
+            this.tb_email.TabIndex = 2;
             // 
             // btn_register
             // 
@@ -268,7 +269,7 @@ namespace BookShopManagementSystem
             this.btn_register.Location = new System.Drawing.Point(486, 489);
             this.btn_register.Name = "btn_register";
             this.btn_register.Size = new System.Drawing.Size(200, 50);
-            this.btn_register.TabIndex = 77;
+            this.btn_register.TabIndex = 8;
             this.btn_register.Text = "Register";
             this.btn_register.UseVisualStyleBackColor = false;
             this.btn_register.Click += new System.EventHandler(this.btn_register_Click);
@@ -280,7 +281,7 @@ namespace BookShopManagementSystem
             this.cb_is_seller.Location = new System.Drawing.Point(580, 404);
             this.cb_is_seller.Name = "cb_is_seller";
             this.cb_is_seller.Size = new System.Drawing.Size(139, 29);
-            this.cb_is_seller.TabIndex = 76;
+            this.cb_is_seller.TabIndex = 7;
             this.cb_is_seller.Text = "I am a seller.";
             this.cb_is_seller.UseVisualStyleBackColor = true;
             // 

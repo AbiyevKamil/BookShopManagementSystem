@@ -33,3 +33,4 @@ D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.cspr
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.exe
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.pdb
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.csproj.AssemblyReference.cache
+D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Loading.resources
