@@ -16,5 +16,6 @@ namespace BookShopManagementSystem.Model
 
         public DbSet<User> Users { get; set; }
         public DbSet<Book> Books { get; set; }
+        public DbSet<ImageModel> Images { get; set; }
     }
 }

@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using BookShopManagementSystem.Helper;
 
 namespace BookShopManagementSystem.Model
 {
@@ -24,6 +28,17 @@ namespace BookShopManagementSystem.Model
             context.Users.Add(user);
             context.SaveChanges();
 
+            Image imageFile = Image.FromFile("./helper_images/dune.jpg");
+            var bytes = ImageHelper.ImageToByteArray(imageFile);
+            ImageModel im = new ImageModel()
+            {
+                Data = bytes,
+                ImageFormat = ".jpg",
+                Name = "dune",
+            };
+            context.Images.Add(im);
+            context.SaveChanges();
+
             Book book = new Book()
             {
                 Name = "Dune",
@@ -40,12 +55,10 @@ namespace BookShopManagementSystem.Model
                 Stock = 5,
                 UserId = user.Id,
                 User = user,
-
+                ImageId = im.Id,
             };
             context.Books.Add(book);
             context.SaveChanges();
-
-
 
             base.Seed(context);
         }

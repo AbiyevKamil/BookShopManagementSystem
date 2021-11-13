@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookShopManagementSystem.Helper;
 using BookShopManagementSystem.Model;
+using System.Data.Entity;
 
 namespace BookShopManagementSystem
 {
@@ -84,8 +87,9 @@ namespace BookShopManagementSystem
 
         private void Home_Load(object sender, EventArgs e)
         {
-            Book book = context.Books.FirstOrDefault();
-            if (book != null) MessageBox.Show(book.PublishedDate.ToString());
+            //Book book = context.Books.Include(i => i.Image).FirstOrDefault();
+            //Image image = ImageHelper.ByteArrayToImage(book.Image.Data);
+            //MessageBox.Show(image.Height.ToString());
         }
     }
 }
