@@ -49,7 +49,8 @@ namespace BookShopManagementSystem
                     LoginModel lm = new LoginModel()
                     {
                         Email = email,
-                        Password = password
+                        Password = password,
+                        KeepMeLoggedIn = cb_save_log.Checked,
                     };
                     btn_login.IsAccessible = false;
                     bool isLoggedIn = _userController.LoginUser(lm);
