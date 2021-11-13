@@ -10,8 +10,9 @@ namespace BookShopManagementSystem.Helper
 {
     public static class ImageHelper
     {
-        public static byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        public static byte[] ImageToByteArray(String imagePath)
         {
+            Image imageIn = Image.FromFile(imagePath);
             using (var ms = new MemoryStream())
             {
                 imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);

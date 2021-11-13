@@ -62,6 +62,7 @@
     <Compile Include="Components.Designer.cs">
       <DependentUpon>Components.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -79,6 +80,7 @@
     <Compile Include="Model\DataContext.cs" />
     <Compile Include="Model\DbInitializer.cs" />
     <Compile Include="Model\ImageModel.cs" />
+    <Compile Include="Model\RegisterModel.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

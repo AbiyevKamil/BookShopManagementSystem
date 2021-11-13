@@ -19,7 +19,6 @@ namespace BookShopManagementSystem
         private DataContext context = new DataContext();
         private Button currentButton;
         private Form currentForm;
-
         public Home()
         {
             InitializeComponent();
@@ -35,7 +34,7 @@ namespace BookShopManagementSystem
             }
         }
 
-        private void AddNewForm(Button button, String formName)
+        public void AddNewForm(Button button, String formName)
         {
             if (button != currentButton)
             {
@@ -45,7 +44,7 @@ namespace BookShopManagementSystem
                 switch (formName)
                 {
                     case "REGISTER":
-                        Register register = new Register();
+                        Register register = new Register(this, btn_login);
                         currentForm = register;
                         break;
                     case "LOGIN":
@@ -53,7 +52,7 @@ namespace BookShopManagementSystem
                         currentForm = login;
                         break;
                     default:
-                        Register defaultRegister = new Register();
+                        Register defaultRegister = new Register(this, btn_login);
                         currentForm = defaultRegister;
                         break;
                 }

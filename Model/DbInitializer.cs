@@ -28,8 +28,7 @@ namespace BookShopManagementSystem.Model
             context.Users.Add(user);
             context.SaveChanges();
 
-            Image imageFile = Image.FromFile("./helper_images/dune.jpg");
-            var bytes = ImageHelper.ImageToByteArray(imageFile);
+            var bytes = ImageHelper.ImageToByteArray("./helper_images/dune.jpg");
             ImageModel im = new ImageModel()
             {
                 Data = bytes,
