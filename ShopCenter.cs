@@ -17,8 +17,19 @@ namespace BookShopManagementSystem
     public partial class ShopCenter : Form
     {
         private readonly UserController _userController = new UserController();
+        private readonly BookController _bookController = new BookController();
         private Home home;
         private User user;
+        private List<Book> books;
+
+        // Generator Values
+        private int StartPointX = 236;
+        private int StartPointY = 30;
+        private int SizeX = 800;
+        private int SizeY = 280;
+        private int SpaceY = 300;
+
+
         public ShopCenter(Home home)
         {
             InitializeComponent();
@@ -26,9 +37,11 @@ namespace BookShopManagementSystem
         }
         private void ShopCenter_Load(object sender, EventArgs e)
         {
-            pnl_shop.AutoScroll = true;
-            pnl_shop.AutoScrollMargin = new Size(10, 10);
+            StartPointY = pnl_body.AutoScrollPosition.Y;
+            pnl_body.AutoScroll = true;
+            pnl_body.AutoScrollMargin = new Size(10, 10);
             cmb_type.SelectedIndex = 0;
+            cmb_stock_filter.SelectedIndex = 0;
             user = _userController.GetUserDataFromLocal();
             if (user == null)
             {
@@ -52,8 +65,7 @@ namespace BookShopManagementSystem
                 lbl_bought_books.Text += $"";
             }
 
-            DataContext context = new DataContext();
-            var books = context.Books.Include(i => i.Image).ToList();
+            books = _bookController.GetAllBooks();
             foreach (var book in books)
             {
                 GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
@@ -88,19 +100,23 @@ namespace BookShopManagementSystem
 
         private void btn_search_Click(object sender, EventArgs e)
         {
+            StartPointX = 236;
+            StartPointY = pnl_body.AutoScrollPosition.Y;
             string query = tb_query.Text.Trim();
             string type = cmb_type.SelectedItem.ToString();
-
+            string inStock = cmb_stock_filter.SelectedItem.ToString();
+            books = _bookController.GetBookByQuery(query, type, inStock);
+            pnl_body.Controls.Clear();
+            foreach (var book in books)
+            {
+                GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
+            }
         }
 
 
         // Generators
 
-        private int StartPointX = 236;
-        private int StartPointY = 52;
-        private int SizeX = 800;
-        private int SizeY = 280;
-        private int SpaceY = 300;
+
 
         public void GenerateItem(int id, string title, string auth, string desc, string category, string pd, string language, int stock, double price, byte[] bytes)
         {
@@ -124,7 +140,7 @@ namespace BookShopManagementSystem
             panel.Name = "pnl_book_item_" + itemName;
             panel.Size = new Size(SizeX, SizeY);
             panel.TabIndex = id;
-            pnl_shop.Controls.Add(panel);
+            pnl_body.Controls.Add(panel);
             StartPointY += SpaceY;
         }
 

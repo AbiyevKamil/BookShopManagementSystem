@@ -44,10 +44,16 @@ namespace BookShopManagementSystem
             this.btn_search = new System.Windows.Forms.Button();
             this.cmb_type = new System.Windows.Forms.ComboBox();
             this.pnl_cmb = new System.Windows.Forms.Panel();
+            this.pnl_filter = new System.Windows.Forms.Panel();
+            this.pnl_body = new System.Windows.Forms.Panel();
+            this.pnl_stock_filter = new System.Windows.Forms.Panel();
+            this.cmb_stock_filter = new System.Windows.Forms.ComboBox();
             this.pnl_header.SuspendLayout();
             this.pnl_shop.SuspendLayout();
             this.pnl_query.SuspendLayout();
             this.pnl_cmb.SuspendLayout();
+            this.pnl_filter.SuspendLayout();
+            this.pnl_stock_filter.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_header
@@ -133,8 +139,8 @@ namespace BookShopManagementSystem
             // pnl_shop
             // 
             this.pnl_shop.AutoScroll = true;
-            this.pnl_shop.Controls.Add(this.pnl_cmb);
-            this.pnl_shop.Controls.Add(this.pnl_query);
+            this.pnl_shop.Controls.Add(this.pnl_body);
+            this.pnl_shop.Controls.Add(this.pnl_filter);
             this.pnl_shop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_shop.Location = new System.Drawing.Point(0, 112);
             this.pnl_shop.Name = "pnl_shop";
@@ -175,10 +181,11 @@ namespace BookShopManagementSystem
             // 
             // pnl_query
             // 
+            this.pnl_query.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnl_query.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_query.Controls.Add(this.btn_search);
             this.pnl_query.Controls.Add(this.tb_query);
-            this.pnl_query.Location = new System.Drawing.Point(119, 8);
+            this.pnl_query.Location = new System.Drawing.Point(61, 8);
             this.pnl_query.MaximumSize = new System.Drawing.Size(560, 45);
             this.pnl_query.Name = "pnl_query";
             this.pnl_query.Size = new System.Drawing.Size(560, 45);
@@ -201,6 +208,7 @@ namespace BookShopManagementSystem
             // btn_search
             // 
             this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_search.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_search.Location = new System.Drawing.Point(465, 2);
             this.btn_search.Name = "btn_search";
@@ -227,13 +235,58 @@ namespace BookShopManagementSystem
             // 
             // pnl_cmb
             // 
+            this.pnl_cmb.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnl_cmb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_cmb.Controls.Add(this.cmb_type);
-            this.pnl_cmb.Location = new System.Drawing.Point(766, 8);
+            this.pnl_cmb.Location = new System.Drawing.Point(627, 8);
             this.pnl_cmb.MaximumSize = new System.Drawing.Size(560, 45);
             this.pnl_cmb.Name = "pnl_cmb";
             this.pnl_cmb.Size = new System.Drawing.Size(301, 45);
             this.pnl_cmb.TabIndex = 100;
+            // 
+            // pnl_filter
+            // 
+            this.pnl_filter.Controls.Add(this.pnl_stock_filter);
+            this.pnl_filter.Controls.Add(this.pnl_cmb);
+            this.pnl_filter.Controls.Add(this.pnl_query);
+            this.pnl_filter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_filter.Location = new System.Drawing.Point(0, 0);
+            this.pnl_filter.Name = "pnl_filter";
+            this.pnl_filter.Size = new System.Drawing.Size(1320, 63);
+            this.pnl_filter.TabIndex = 101;
+            // 
+            // pnl_body
+            // 
+            this.pnl_body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_body.Location = new System.Drawing.Point(0, 63);
+            this.pnl_body.Name = "pnl_body";
+            this.pnl_body.Size = new System.Drawing.Size(1320, 570);
+            this.pnl_body.TabIndex = 102;
+            // 
+            // pnl_stock_filter
+            // 
+            this.pnl_stock_filter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnl_stock_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.pnl_stock_filter.Controls.Add(this.cmb_stock_filter);
+            this.pnl_stock_filter.Location = new System.Drawing.Point(934, 7);
+            this.pnl_stock_filter.MaximumSize = new System.Drawing.Size(560, 45);
+            this.pnl_stock_filter.Name = "pnl_stock_filter";
+            this.pnl_stock_filter.Size = new System.Drawing.Size(301, 45);
+            this.pnl_stock_filter.TabIndex = 101;
+            // 
+            // cmb_stock_filter
+            // 
+            this.cmb_stock_filter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.cmb_stock_filter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmb_stock_filter.FormattingEnabled = true;
+            this.cmb_stock_filter.Items.AddRange(new object[] {
+            "All",
+            "In Stock",
+            "Out of Stock"});
+            this.cmb_stock_filter.Location = new System.Drawing.Point(3, 7);
+            this.cmb_stock_filter.Name = "cmb_stock_filter";
+            this.cmb_stock_filter.Size = new System.Drawing.Size(295, 33);
+            this.cmb_stock_filter.TabIndex = 99;
             // 
             // ShopCenter
             // 
@@ -257,6 +310,8 @@ namespace BookShopManagementSystem
             this.pnl_query.ResumeLayout(false);
             this.pnl_query.PerformLayout();
             this.pnl_cmb.ResumeLayout(false);
+            this.pnl_filter.ResumeLayout(false);
+            this.pnl_stock_filter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -277,5 +332,9 @@ namespace BookShopManagementSystem
         private System.Windows.Forms.TextBox tb_query;
         private System.Windows.Forms.Panel pnl_cmb;
         private System.Windows.Forms.ComboBox cmb_type;
+        private System.Windows.Forms.Panel pnl_body;
+        private System.Windows.Forms.Panel pnl_filter;
+        private System.Windows.Forms.Panel pnl_stock_filter;
+        private System.Windows.Forms.ComboBox cmb_stock_filter;
     }
 }
