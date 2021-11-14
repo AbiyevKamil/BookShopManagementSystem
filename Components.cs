@@ -16,5 +16,10 @@ namespace BookShopManagementSystem
         {
             InitializeComponent();
         }
+
+        private void pnl_book_item_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Panel");
+        }
     }
 }

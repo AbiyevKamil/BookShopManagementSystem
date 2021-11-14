@@ -150,6 +150,7 @@ namespace BookShopManagementSystem
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Book Shop";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Home_Load);
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();

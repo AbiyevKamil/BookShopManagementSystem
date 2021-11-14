@@ -90,5 +90,10 @@ namespace BookShopManagementSystem
             //Image image = ImageHelper.ByteArrayToImage(book.Image.Data);
             //MessageBox.Show(image.Height.ToString());
         }
+
+        private void Home_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
