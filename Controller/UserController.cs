@@ -55,6 +55,7 @@ namespace BookShopManagementSystem.Controller
                 ini.Write("Id", registeredUser.Id.ToString());
                 ini.Write("Name", registeredUser.Name);
                 ini.Write("Surname", registeredUser.Surname);
+                ini.Write("Budget", registeredUser.Budget.ToString());
                 ini.Write("Adress", registeredUser.Adress);
                 ini.Write("Email", registeredUser.Email);
                 ini.Write("Password", registeredUser.Password);
@@ -72,6 +73,7 @@ namespace BookShopManagementSystem.Controller
             string id = ini.Read("Id");
             string name = ini.Read("Name");
             string surname = ini.Read("Surname");
+            string budget = ini.Read("Budget");
             string email = ini.Read("Email");
             string adress = ini.Read("Adress");
             string password = ini.Read("Password");
@@ -85,6 +87,7 @@ namespace BookShopManagementSystem.Controller
                 Name = name,
                 Surname = surname,
                 Email = email,
+                Budget = Convert.ToInt32(budget),
                 Adress = adress,
                 Password = password,
                 IsSeller = Convert.ToBoolean(isSeller)
@@ -96,8 +99,17 @@ namespace BookShopManagementSystem.Controller
         public void DeleteLocalData()
         {
             IniFile ini = new IniFile(userFile);
-            bool keepMeLoggedIn = Convert.ToBoolean(ini.Read("KeepMeLoggedIn"));
-            if (File.Exists(userFile) && !keepMeLoggedIn) File.Delete(userFile);
+            if (File.Exists(userFile))
+            {
+                string logCondition = ini.Read("KeepMeLoggedIn");
+                bool keepMeLoggedIn = Convert.ToBoolean(String.IsNullOrEmpty(logCondition) ? "false" : logCondition);
+                if (!keepMeLoggedIn) File.Delete(userFile);
+            }
+        }
+
+        public void Logout()
+        {
+            if (File.Exists(userFile)) File.Delete(userFile);
         }
     }
 }

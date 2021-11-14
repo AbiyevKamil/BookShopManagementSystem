@@ -43,14 +43,14 @@ namespace BookShopManagementSystem
             {
                 tmr_loading.Stop();
                 this.Hide();
+                Home home = new Home();
                 if (user == null)
                 {
-                    Home home = new Home();
                     home.Show();
                 }
                 else
                 {
-                    ShopCenter sc = new ShopCenter();
+                    ShopCenter sc = new ShopCenter(home);
                     sc.Show();
                 }
             }

@@ -11,7 +11,7 @@ using BookShopManagementSystem.Helper;
 
 namespace BookShopManagementSystem.Model
 {
-    class DbInitializer : DropCreateDatabaseAlways<DataContext>
+    class DbInitializer : DropCreateDatabaseIfModelChanges<DataContext>
     {
         protected override void Seed(DataContext context)
         {

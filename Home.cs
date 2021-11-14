@@ -79,7 +79,7 @@ namespace BookShopManagementSystem
 
         private void btn_continue_Click(object sender, EventArgs e)
         {
-            ShopCenter sc = new ShopCenter();
+            ShopCenter sc = new ShopCenter(this);
             this.Hide();
             sc.Show();
         }

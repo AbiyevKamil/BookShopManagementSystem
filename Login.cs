@@ -57,7 +57,7 @@ namespace BookShopManagementSystem
                     if (isLoggedIn)
                     {
                         home.Hide();
-                        ShopCenter sc = new ShopCenter();
+                        ShopCenter sc = new ShopCenter(home);
                         sc.Show();
                     }
                     else
