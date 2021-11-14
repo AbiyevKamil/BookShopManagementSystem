@@ -39,7 +39,15 @@ namespace BookShopManagementSystem
             this.pnl_shop = new System.Windows.Forms.Panel();
             this.btn_sell_book = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
+            this.pnl_query = new System.Windows.Forms.Panel();
+            this.tb_query = new System.Windows.Forms.TextBox();
+            this.btn_search = new System.Windows.Forms.Button();
+            this.cmb_type = new System.Windows.Forms.ComboBox();
+            this.pnl_cmb = new System.Windows.Forms.Panel();
             this.pnl_header.SuspendLayout();
+            this.pnl_shop.SuspendLayout();
+            this.pnl_query.SuspendLayout();
+            this.pnl_cmb.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_header
@@ -125,6 +133,8 @@ namespace BookShopManagementSystem
             // pnl_shop
             // 
             this.pnl_shop.AutoScroll = true;
+            this.pnl_shop.Controls.Add(this.pnl_cmb);
+            this.pnl_shop.Controls.Add(this.pnl_query);
             this.pnl_shop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_shop.Location = new System.Drawing.Point(0, 112);
             this.pnl_shop.Name = "pnl_shop";
@@ -163,6 +173,68 @@ namespace BookShopManagementSystem
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
+            // pnl_query
+            // 
+            this.pnl_query.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.pnl_query.Controls.Add(this.btn_search);
+            this.pnl_query.Controls.Add(this.tb_query);
+            this.pnl_query.Location = new System.Drawing.Point(119, 8);
+            this.pnl_query.MaximumSize = new System.Drawing.Size(560, 45);
+            this.pnl_query.Name = "pnl_query";
+            this.pnl_query.Size = new System.Drawing.Size(560, 45);
+            this.pnl_query.TabIndex = 98;
+            // 
+            // tb_query
+            // 
+            this.tb_query.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_query.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.tb_query.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb_query.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_query.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
+            this.tb_query.Location = new System.Drawing.Point(8, 10);
+            this.tb_query.Name = "tb_query";
+            this.tb_query.Size = new System.Drawing.Size(453, 27);
+            this.tb_query.TabIndex = 43;
+            // 
+            // btn_search
+            // 
+            this.btn_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_search.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_search.Location = new System.Drawing.Point(465, 2);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(95, 42);
+            this.btn_search.TabIndex = 44;
+            this.btn_search.Text = "Search";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.btn_search_Click);
+            // 
+            // cmb_type
+            // 
+            this.cmb_type.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.cmb_type.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmb_type.FormattingEnabled = true;
+            this.cmb_type.Items.AddRange(new object[] {
+            "Name",
+            "Author",
+            "Category",
+            "Language"});
+            this.cmb_type.Location = new System.Drawing.Point(3, 7);
+            this.cmb_type.Name = "cmb_type";
+            this.cmb_type.Size = new System.Drawing.Size(295, 33);
+            this.cmb_type.TabIndex = 99;
+            // 
+            // pnl_cmb
+            // 
+            this.pnl_cmb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.pnl_cmb.Controls.Add(this.cmb_type);
+            this.pnl_cmb.Location = new System.Drawing.Point(766, 8);
+            this.pnl_cmb.MaximumSize = new System.Drawing.Size(560, 45);
+            this.pnl_cmb.Name = "pnl_cmb";
+            this.pnl_cmb.Size = new System.Drawing.Size(301, 45);
+            this.pnl_cmb.TabIndex = 100;
+            // 
             // ShopCenter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -181,6 +253,10 @@ namespace BookShopManagementSystem
             this.Load += new System.EventHandler(this.ShopCenter_Load);
             this.pnl_header.ResumeLayout(false);
             this.pnl_header.PerformLayout();
+            this.pnl_shop.ResumeLayout(false);
+            this.pnl_query.ResumeLayout(false);
+            this.pnl_query.PerformLayout();
+            this.pnl_cmb.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -196,5 +272,10 @@ namespace BookShopManagementSystem
         private System.Windows.Forms.Panel pnl_shop;
         private System.Windows.Forms.Button btn_sell_book;
         private System.Windows.Forms.Button btn_login;
+        private System.Windows.Forms.Panel pnl_query;
+        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.TextBox tb_query;
+        private System.Windows.Forms.Panel pnl_cmb;
+        private System.Windows.Forms.ComboBox cmb_type;
     }
 }

@@ -28,6 +28,7 @@ namespace BookShopManagementSystem
         {
             pnl_shop.AutoScroll = true;
             pnl_shop.AutoScrollMargin = new Size(10, 10);
+            cmb_type.SelectedIndex = 0;
             user = _userController.GetUserDataFromLocal();
             if (user == null)
             {
@@ -85,7 +86,12 @@ namespace BookShopManagementSystem
             home.Show();
         }
 
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+            string query = tb_query.Text.Trim();
+            string type = cmb_type.SelectedItem.ToString();
 
+        }
 
 
         // Generators
