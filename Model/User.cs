@@ -21,15 +21,14 @@ namespace BookShopManagementSystem.Model
         [Required]
         public string Password { get; set; }
         [Required]
-        public string Adress { get; set; }
+        public string Address { get; set; }
         [Required]
         public bool IsSeller { get; set; }
         [Required]
         public double Budget { get; set; }
 
-
-        public List<Book> SellingBooks { get; set; }
-        public List<Book> BoughtBooks { get; set; }
+        //public virtual List<Book> SellingBooks { get; set; }
+        //public virtual List<Book> BoughtBooks { get; set; }
 
     }
 }

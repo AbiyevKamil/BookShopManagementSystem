@@ -35,7 +35,7 @@ namespace BookShopManagementSystem.Controller
             {
                 Name = nu.Name,
                 Surname = nu.Surname,
-                Adress = nu.Adress,
+                Address = nu.Adress,
                 Email = nu.Email,
                 Password = nu.Password,
                 Budget = 2000,
@@ -56,7 +56,7 @@ namespace BookShopManagementSystem.Controller
                 ini.Write("Name", registeredUser.Name);
                 ini.Write("Surname", registeredUser.Surname);
                 ini.Write("Budget", registeredUser.Budget.ToString());
-                ini.Write("Adress", registeredUser.Adress);
+                ini.Write("Adress", registeredUser.Address);
                 ini.Write("Email", registeredUser.Email);
                 ini.Write("Password", registeredUser.Password);
                 ini.Write("IsSeller", registeredUser.IsSeller.ToString());
@@ -88,7 +88,7 @@ namespace BookShopManagementSystem.Controller
                 Surname = surname,
                 Email = email,
                 Budget = Convert.ToInt32(budget),
-                Adress = adress,
+                Address = adress,
                 Password = password,
                 IsSeller = Convert.ToBoolean(isSeller)
             };
@@ -110,6 +110,11 @@ namespace BookShopManagementSystem.Controller
         public void Logout()
         {
             if (File.Exists(userFile)) File.Delete(userFile);
+        }
+
+        public void Terminate()
+        {
+            _context.Dispose();
         }
     }
 }

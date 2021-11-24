@@ -47,7 +47,7 @@ namespace BookShopManagementSystem
             {
                 lbl_user.Text = "Not signed in";
                 lbl_user.ForeColor = Color.Maroon;
-                lbl_bought_books.Text += " 0";
+                //lbl_bought_books.Text += " 0";
                 lbl_budget.Text += " 0";
                 btn_logout.Visible = false;
                 btn_logout.IsAccessible = false;
@@ -62,7 +62,7 @@ namespace BookShopManagementSystem
                 btn_login.IsAccessible = false;
                 lbl_user.Text += $"{user.Name.ToUpper()} {user.Surname.ToUpper()}";
                 lbl_budget.Text += $" {user.Budget}";
-                lbl_bought_books.Text += $"";
+                //lbl_bought_books.Text += $"";
             }
 
             books = _bookController.GetAllBooks();
@@ -75,26 +75,27 @@ namespace BookShopManagementSystem
         private void ShopCenter_FormClosing(object sender, FormClosingEventArgs e)
         {
             _userController.DeleteLocalData();
-            System.Environment.Exit(0);
+            _userController.Terminate();
+            Environment.Exit(0);
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
             _userController.Logout();
-            this.Hide();
+            Hide();
             home.Show();
         }
 
         private void btn_sell_book_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             BookForm bf = new BookForm();
             bf.Show();
         }
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             home.Show();
         }
 
@@ -111,6 +112,11 @@ namespace BookShopManagementSystem
             {
                 GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
             }
+        }
+
+        private void btn_admin_panel_Click(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -131,6 +137,7 @@ namespace BookShopManagementSystem
             panel.Controls.Add(GenerateLongDesc(itemName, desc));
             panel.Controls.Add(GenerateDesc(itemName));
             panel.Controls.Add(GenerateId(itemName, id));
+            panel.Controls.Add(GenerateMore(itemName, id, title, auth, desc, category, pd, language, stock, price, bytes));
             panel.Controls.Add(GenerateBuy(itemName, stock));
             panel.Controls.Add(GeneratePrice(itemName, price));
             panel.Controls.Add(GeneratePhoto(itemName, bytes));
@@ -219,8 +226,38 @@ namespace BookShopManagementSystem
                 button.Visible = false;
             }
             else
+            {
                 button.IsAccessible = stock > 0 ? true : false;
+                button.Click += new EventHandler(delegate (object sender, EventArgs e)
+                {
+
+                    // Buy Book
+                });
+            }
+
             button.UseVisualStyleBackColor = false;
+            return button;
+        }
+        public Button GenerateMore(string itemName, int id, string title, string auth, string desc, string category, string pd, string language, int stock, double price, byte[] bytes)
+        {
+            Button button = new Button();
+            button.BackColor = Color.Transparent;
+            button.Cursor = Cursors.Hand;
+            button.FlatAppearance.BorderSize = 0;
+            button.FlatStyle = FlatStyle.Flat;
+            button.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            button.ForeColor = Color.DarkRed;
+            button.Location = new Point(499, 0);
+            button.Name = "btn_show_more_" + itemName;
+            button.Size = new Size(150, 39);
+            button.TabIndex = 6;
+            button.Text = "More...";
+            button.BackColor = Color.WhiteSmoke;
+            button.Click += new EventHandler(delegate (object sender, EventArgs e)
+            {
+                BookDetail bd = new BookDetail(id, title, auth, desc, category, pd, language, stock, price, bytes);
+                bd.ShowDialog();
+            });
             return button;
         }
 
@@ -324,7 +361,6 @@ namespace BookShopManagementSystem
             label.Text = category.Substring(0, 1).ToUpper() + category.Substring(1); ;
             return label;
         }
-
 
     }
 }

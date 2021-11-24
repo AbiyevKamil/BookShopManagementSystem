@@ -41,6 +41,7 @@ namespace BookShopManagementSystem
             }
             else
             {
+                bw_load_db.Dispose();
                 tmr_loading.Stop();
                 this.Hide();
                 Home home = new Home();

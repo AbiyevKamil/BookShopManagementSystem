@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace BookShopManagementSystem
 {
-    public partial class Components : Form
+    public partial class AdminPanel : Form
     {
-        public Components()
+        public AdminPanel()
         {
             InitializeComponent();
-        }
-
-        private void pnl_book_item_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Panel");
-        }
-
-        private void btn_show_more_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

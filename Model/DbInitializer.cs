@@ -19,11 +19,11 @@ namespace BookShopManagementSystem.Model
             {
                 Name = "Kamil",
                 Surname = "Abiyev",
-                Adress = "Baku, Ganjlik",
+                Address = "Baku, Ganjlik",
                 Budget = 5000,
                 Email = "kamil@gmail.com",
                 IsSeller = true,
-                Password = "123456"
+                Password = "123456",
             };
             context.Users.Add(user);
             context.SaveChanges();

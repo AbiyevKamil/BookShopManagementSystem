@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.IO;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BookShopManagementSystem.Helper;
 using BookShopManagementSystem.Model;
 
 namespace BookShopManagementSystem.Controller
@@ -91,6 +93,68 @@ namespace BookShopManagementSystem.Controller
                 default:
                     return _context.Books.Include(i => i.Image).Where(i => stock ? i.Stock > 0 : i.Stock == 0).ToList();
             }
+        }
+
+        public bool BuyBook(int BookId)
+        {
+            Book book = _context.Books.Include(i => i.Image)
+                                        .Include(i => i.User)
+                                        .FirstOrDefault(i => i.Id == BookId);
+            if (book == null) return false;
+            IniFile ini = new IniFile(userFile);
+            string id = ini.Read("Id");
+            if (id != null)
+            {
+                int Id = Convert.ToInt32(id);
+                User user = _context.Users.FirstOrDefault(i => i.Id == Id);
+                if (user != null)
+                {
+                    if (book.User.Id != user.Id)
+                    {
+                        if (user.Budget >= book.Price)
+                        {
+                            user.Budget -= book.Price;
+                            book.Stock -= 1;
+                            AddToDesktop(book);
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public void AddToDesktop(Book book)
+        {
+            string bookDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}";
+            string bookFile = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/{book.Name}.txt";
+            string bookImg = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/{book.Name}.{book.Image.ImageFormat}";
+            string shopDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop";
+            if (!Directory.Exists(shopDirectory))
+            {
+                Directory.CreateDirectory(shopDirectory);
+            }
+
+            if (!Directory.Exists(bookDirectory))
+            {
+                Directory.CreateDirectory(bookDirectory);
+            }
+            if (!File.Exists(bookFile))
+            {
+                var file = File.Create(bookFile);
+                file.Close();
+            }
+            if (!File.Exists(bookImg))
+            {
+                var file = File.Create(bookImg);
+                file.Close();
+            }
+            string bookData = $"{book.Name}\n{book.Author}\n{book.PublishedDate.ToString("yyyy MMMM dd")}\n{book.Description}";
+            File.WriteAllText(bookFile, bookData);
         }
 
     }

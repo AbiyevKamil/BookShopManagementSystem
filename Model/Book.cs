@@ -17,8 +17,6 @@ namespace BookShopManagementSystem.Model
         public string Description { get; set; }
         [Required]
         public DateTime PublishedDate { get; set; }
-        //[Required]
-        //public byte[] ImageBytes { get; set; }
         [Required]
         public string Language { get; set; }
         [Required]

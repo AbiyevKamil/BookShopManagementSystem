@@ -36,3 +36,4 @@ D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.cspr
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Loading.resources
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.ShopCenter.resources
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.BookForm.resources
+D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.BookDetail.resources
