@@ -60,6 +60,11 @@ namespace BookShopManagementSystem
             }
             else
             {
+                if (!user.IsSeller)
+                {
+                    btn_admin_panel.Visible = false;
+                    btn_admin_panel.IsAccessible = false;
+                }
                 btn_login.Visible = false;
                 btn_login.IsAccessible = false;
                 lbl_user.Text += $"{user.Name.ToUpper()} {user.Surname.ToUpper()}";
@@ -118,7 +123,7 @@ namespace BookShopManagementSystem
 
         private void btn_admin_panel_Click(object sender, EventArgs e)
         {
-            AccountPanel ap = new AccountPanel();
+            AccountPanel ap = new AccountPanel(this);
             ap.ShowDialog();
         }
 
@@ -361,7 +366,7 @@ namespace BookShopManagementSystem
             label.Name = "lbl_category_" + itemName;
             label.Size = new Size(88, 25);
             label.TabIndex = 11;
-            label.Text = category.Substring(0, 1).ToUpper() + category.Substring(1); ;
+            label.Text = category.Substring(0, 1).ToUpper() + category.Substring(1);
             return label;
         }
 

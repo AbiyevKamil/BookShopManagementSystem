@@ -48,11 +48,41 @@ namespace BookShopManagementSystem.Controller
             if (id != null)
             {
                 Id = Convert.ToInt32(id);
-                var books = _context.Books.Include(i => i.User).Where(i => i.User.Id == Id).Include(i => i.Image).ToList();
-                return books;
+                using (var upContext = new DataContext())
+                {
+                    var books = upContext.Books.Include(i => i.User).Where(i => i.User.Id == Id).Include(i => i.Image).ToList();
+                    return books;
+                }
+            }
+            return null;
+        }
+
+        public bool UpdateBook(Book book)
+        {
+            var sb = _context.Books.Include(i => i.Image).Include(i => i.User).FirstOrDefault(i => i.Id == book.Id);
+            if (sb != null)
+            {
+                if (book.Image != null) sb.Image = book.Image;
+                sb.Author = sb.Author;
+                sb.Name = book.Name;
+                sb.Description = book.Description;
+                sb.Language = book.Language;
+                sb.PublishedDate = book.PublishedDate;
+                sb.Stock = book.Stock;
+                sb.Price = book.Price;
+                sb.Category = book.Category;
+                sb.PublishedDate = book.PublishedDate;
+                _context.SaveChanges();
+                return true;
             }
 
-            return null;
+            return false;
+        }
+
+        public dynamic GetBookById(int id)
+        {
+            var book = _context.Books.Include(i => i.User).Include(i => i.Image).FirstOrDefault(i => i.Id == id);
+            return book;
         }
 
         public List<Book> GetBookByQuery(string query, string type, string inStock)
@@ -131,6 +161,7 @@ namespace BookShopManagementSystem.Controller
                             user.Budget -= book.Price;
                             book.Stock -= 1;
                             AddToDesktop(book);
+                            _context.SaveChanges();
                             return true;
                         }
                     }
@@ -171,6 +202,19 @@ namespace BookShopManagementSystem.Controller
             string bookData = $"{book.Name}\n{book.Author}\n{book.PublishedDate.ToString("yyyy MMMM dd")}\n{book.Description}";
             File.WriteAllText(bookFile, bookData);
         }
+
+        public bool DeleteBookById(int id)
+        {
+            var book = _context.Books.FirstOrDefault(i => i.Id == id);
+            if (book != null)
+            {
+                _context.Books.Remove(book);
+                _context.SaveChanges();
+            }
+
+            return false;
+        }
+
 
     }
 }

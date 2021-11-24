@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -110,6 +111,25 @@ namespace BookShopManagementSystem.Controller
         public void Logout()
         {
             if (File.Exists(userFile)) File.Delete(userFile);
+        }
+
+        public void DeleteUser()
+        {
+            IniFile ini = new IniFile(userFile);
+            string id = ini.Read("Id");
+            int Id = Convert.ToInt32(id);
+            var user = _context.Users.FirstOrDefault(i => i.Id == Id);
+            if (user != null)
+            {
+                var books = _context.Books.Include(i => i.User).Include(i => i.Image).Where(i => i.UserId == user.Id).ToList();
+                foreach (var book in books)
+                {
+                    _context.Images.Remove(book.Image);
+                    _context.Books.Remove(book);
+                }
+
+                _context.Users.Remove(user);
+            }
         }
 
         public void Terminate()

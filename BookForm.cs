@@ -66,43 +66,46 @@ namespace BookShopManagementSystem
                       String.IsNullOrEmpty(desc) || String.IsNullOrEmpty(stock) || String.IsNullOrEmpty(lang) ||
                       String.IsNullOrEmpty(price)))
             {
-                if (Regex.IsMatch(price, @"^\d+$") && Regex.IsMatch(stock, @"^\d+$"))
+                if (category.Length < 30 && lang.Length < 30 && auth.Length < 30 && name.Length < 30)
                 {
-                    if (image == null)
+                    if (Regex.IsMatch(price, @"^\d+$") && Regex.IsMatch(stock, @"^\d+$"))
                     {
-                        lbl_status.Text = "Choose image";
-                    }
-                    else
-                    {
-                        User user = _userController.GetUserDataFromLocal();
-                        Book book = new Book()
+                        if (image == null)
                         {
-                            Name = name,
-                            Author = auth,
-                            Category = category,
-                            Description = desc,
-                            Language = lang,
-                            Stock = Int32.Parse(stock),
-                            Price = Int32.Parse(price),
-                            PublishedDate = pd,
-                            UserId = user.Id
-                        };
-                        _bookController.AddBook(book, image);
-                        this.Hide();
-                        if (isShopCenter)
-                        {
-                            ShopCenter sc = new ShopCenter(new Home());
-                            sc.Show();
+                            lbl_status.Text = "Choose image";
                         }
                         else
                         {
+                            User user = _userController.GetUserDataFromLocal();
+                            Book book = new Book()
+                            {
+                                Name = name,
+                                Author = auth,
+                                Category = category,
+                                Description = desc,
+                                Language = lang,
+                                Stock = Int32.Parse(stock),
+                                Price = Int32.Parse(price),
+                                PublishedDate = pd,
+                                UserId = user.Id
+                            };
+                            _bookController.AddBook(book, image);
                             this.Hide();
+                            if (isShopCenter)
+                            {
+                                ShopCenter sc = new ShopCenter(new Home());
+                                sc.Show();
+                            }
+                            else
+                            {
+                                this.Hide();
+                            }
+
                         }
-
                     }
+                    else lbl_status.Text = "Price and stock must be number.";
                 }
-                else lbl_status.Text = "Price and stock must be number.";
-
+                else lbl_status.Text = "Name, Author, Category, Language can't be more than 30 character length";
             }
             else
             {

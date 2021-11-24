@@ -38,3 +38,4 @@ D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.Shop
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.BookForm.resources
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.BookDetail.resources
 D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.AccountPanel.resources
+D:\Kamil\Github\BookShopManagementSystem\obj\Debug\BookShopManagementSystem.BookUpdateForm.resources
