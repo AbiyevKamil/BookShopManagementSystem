@@ -55,6 +55,8 @@ namespace BookShopManagementSystem
                 btn_sell_book.IsAccessible = false;
                 btn_login.Visible = true;
                 btn_login.IsAccessible = true;
+                btn_admin_panel.Visible = false;
+                btn_admin_panel.IsAccessible = false;
             }
             else
             {
@@ -89,7 +91,7 @@ namespace BookShopManagementSystem
         private void btn_sell_book_Click(object sender, EventArgs e)
         {
             Hide();
-            BookForm bf = new BookForm();
+            BookForm bf = new BookForm(true);
             bf.Show();
         }
 
@@ -116,7 +118,8 @@ namespace BookShopManagementSystem
 
         private void btn_admin_panel_Click(object sender, EventArgs e)
         {
-
+            AccountPanel ap = new AccountPanel();
+            ap.ShowDialog();
         }
 
 

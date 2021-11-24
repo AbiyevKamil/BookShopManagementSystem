@@ -20,9 +20,11 @@ namespace BookShopManagementSystem
         private BookController _bookController = new BookController();
         private UserController _userController = new UserController();
         private ImageModel image;
-        public BookForm()
+        private bool isShopCenter;
+        public BookForm(bool isShopCenter)
         {
             InitializeComponent();
+            this.isShopCenter = isShopCenter;
         }
 
         private void btn_add_image_Click(object sender, EventArgs e)
@@ -87,8 +89,16 @@ namespace BookShopManagementSystem
                         };
                         _bookController.AddBook(book, image);
                         this.Hide();
-                        ShopCenter sc = new ShopCenter(new Home());
-                        sc.Show();
+                        if (isShopCenter)
+                        {
+                            ShopCenter sc = new ShopCenter(new Home());
+                            sc.Show();
+                        }
+                        else
+                        {
+                            this.Hide();
+                        }
+
                     }
                 }
                 else lbl_status.Text = "Price and stock must be number.";

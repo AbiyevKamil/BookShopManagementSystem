@@ -40,6 +40,21 @@ namespace BookShopManagementSystem.Controller
             _context.SaveChanges();
         }
 
+        public dynamic GetUserBooks()
+        {
+            int Id;
+            IniFile ini = new IniFile(userFile);
+            string id = ini.Read("Id");
+            if (id != null)
+            {
+                Id = Convert.ToInt32(id);
+                var books = _context.Books.Include(i => i.User).Where(i => i.User.Id == Id).Include(i => i.Image).ToList();
+                return books;
+            }
+
+            return null;
+        }
+
         public List<Book> GetBookByQuery(string query, string type, string inStock)
         {
             bool stock = false;

@@ -290,9 +290,9 @@ namespace BookShopManagementSystem
             this.btn_admin_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_admin_panel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_admin_panel.ForeColor = System.Drawing.Color.White;
-            this.btn_admin_panel.Location = new System.Drawing.Point(1131, 0);
+            this.btn_admin_panel.Location = new System.Drawing.Point(1170, 0);
             this.btn_admin_panel.Name = "btn_admin_panel";
-            this.btn_admin_panel.Size = new System.Drawing.Size(189, 40);
+            this.btn_admin_panel.Size = new System.Drawing.Size(150, 40);
             this.btn_admin_panel.TabIndex = 4;
             this.btn_admin_panel.Text = "Admin Panel";
             this.btn_admin_panel.UseVisualStyleBackColor = false;

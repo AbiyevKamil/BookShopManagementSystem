@@ -59,11 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPanel.cs">
+    <Compile Include="AccountPanel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminPanel.Designer.cs">
-      <DependentUpon>AdminPanel.cs</DependentUpon>
+    <Compile Include="AccountPanel.Designer.cs">
+      <DependentUpon>AccountPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="BookDetail.cs">
       <SubType>Form</SubType>
@@ -126,6 +126,9 @@
     <Compile Include="ShopCenter.Designer.cs">
       <DependentUpon>ShopCenter.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AccountPanel.resx">
+      <DependentUpon>AccountPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookDetail.resx">
       <DependentUpon>BookDetail.cs</DependentUpon>
     </EmbeddedResource>
