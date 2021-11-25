@@ -61,7 +61,7 @@ namespace BookShopManagementSystem {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Daxil olmadan davam.
+        ///   Looks up a localized string similar to Daxil olmadan davam et.
         /// </summary>
         internal static string _continue {
             get {

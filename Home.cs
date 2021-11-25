@@ -24,6 +24,7 @@ namespace BookShopManagementSystem
         private ResourceManager rm = new ResourceManager("BookShopManagementSystem.eng", Assembly.GetExecutingAssembly());
         private Button currentButton;
         private Form currentForm;
+        private bool temp = false;
         public Home()
         {
             InitializeComponent();
@@ -53,6 +54,11 @@ namespace BookShopManagementSystem
 
         public void AddNewForm(Button button, String formName)
         {
+            if (temp)
+            {
+                currentButton = null;
+                temp = false;
+            }
             if (button != currentButton)
             {
                 currentButton = button;
@@ -113,20 +119,28 @@ namespace BookShopManagementSystem
         public void MakeAZE()
         {
             rm = new ResourceManager("BookShopManagementSystem.aze", Assembly.GetExecutingAssembly());
-            btn_login.Text = rm.GetString("login");
-            btn_register.Text = rm.GetString("register");
-            btn_continue.Text = rm.GetString("continue");
+            LangChange();
             _settings.SetLang("AZE");
-            if (currentButton != null) currentButton.PerformClick();
         }
 
         public void MakeENG()
         {
+            rm = new ResourceManager("BookShopManagementSystem.eng", Assembly.GetExecutingAssembly());
+            LangChange();
+            _settings.SetLang("ENG");
 
+        }
+
+        public void LangChange()
+        {
+            btn_login.Text = rm.GetString("login");
+            btn_register.Text = rm.GetString("register");
+            btn_continue.Text = rm.GetString("continue");
         }
 
         private void cmb_lang_SelectedIndexChanged(object sender, EventArgs e)
         {
+            temp = true;
             string lang = cmb_lang.SelectedItem.ToString();
             switch (lang)
             {
@@ -137,6 +151,8 @@ namespace BookShopManagementSystem
                     MakeAZE();
                     break;
             }
+            if (currentButton != null)
+                currentButton.PerformClick();
         }
 
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
