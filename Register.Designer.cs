@@ -29,6 +29,7 @@ namespace BookShopManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.lbl_status = new System.Windows.Forms.Label();
             this.pnl_form = new System.Windows.Forms.Panel();
             this.cb_show_pass = new System.Windows.Forms.CheckBox();
@@ -65,7 +66,7 @@ namespace BookShopManagementSystem
             this.lbl_status.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_status.AutoSize = true;
             this.lbl_status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_status.Location = new System.Drawing.Point(299, 443);
+            this.lbl_status.Location = new System.Drawing.Point(223, 443);
             this.lbl_status.Name = "lbl_status";
             this.lbl_status.Size = new System.Drawing.Size(0, 28);
             this.lbl_status.TabIndex = 72;
@@ -92,14 +93,14 @@ namespace BookShopManagementSystem
             this.pnl_form.Location = new System.Drawing.Point(0, 0);
             this.pnl_form.Margin = new System.Windows.Forms.Padding(15);
             this.pnl_form.Name = "pnl_form";
-            this.pnl_form.Size = new System.Drawing.Size(1195, 639);
+            this.pnl_form.Size = new System.Drawing.Size(1043, 639);
             this.pnl_form.TabIndex = 73;
             // 
             // cb_show_pass
             // 
             this.cb_show_pass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cb_show_pass.AutoSize = true;
-            this.cb_show_pass.Location = new System.Drawing.Point(299, 404);
+            this.cb_show_pass.Location = new System.Drawing.Point(223, 404);
             this.cb_show_pass.Name = "cb_show_pass";
             this.cb_show_pass.Size = new System.Drawing.Size(165, 29);
             this.cb_show_pass.TabIndex = 6;
@@ -112,7 +113,7 @@ namespace BookShopManagementSystem
             this.lbl_pass_again.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_pass_again.BackColor = System.Drawing.Color.Transparent;
             this.lbl_pass_again.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.lbl_pass_again.Location = new System.Drawing.Point(294, 319);
+            this.lbl_pass_again.Location = new System.Drawing.Point(218, 319);
             this.lbl_pass_again.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_pass_again.Name = "lbl_pass_again";
             this.lbl_pass_again.Size = new System.Drawing.Size(211, 25);
@@ -124,7 +125,7 @@ namespace BookShopManagementSystem
             this.pnl_surname.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_surname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_surname.Controls.Add(this.tb_surname);
-            this.pnl_surname.Location = new System.Drawing.Point(597, 37);
+            this.pnl_surname.Location = new System.Drawing.Point(521, 37);
             this.pnl_surname.Name = "pnl_surname";
             this.pnl_surname.Size = new System.Drawing.Size(305, 45);
             this.pnl_surname.TabIndex = 10;
@@ -145,7 +146,7 @@ namespace BookShopManagementSystem
             this.pnl_name.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_name.Controls.Add(this.tb_name);
-            this.pnl_name.Location = new System.Drawing.Point(294, 37);
+            this.pnl_name.Location = new System.Drawing.Point(218, 37);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(297, 45);
             this.pnl_name.TabIndex = 9;
@@ -166,7 +167,7 @@ namespace BookShopManagementSystem
             this.pnl_pass_confirm.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_pass_confirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_pass_confirm.Controls.Add(this.tb_pass_confirm);
-            this.pnl_pass_confirm.Location = new System.Drawing.Point(294, 349);
+            this.pnl_pass_confirm.Location = new System.Drawing.Point(218, 349);
             this.pnl_pass_confirm.Name = "pnl_pass_confirm";
             this.pnl_pass_confirm.Size = new System.Drawing.Size(608, 45);
             this.pnl_pass_confirm.TabIndex = 14;
@@ -190,7 +191,7 @@ namespace BookShopManagementSystem
             this.pnl_pass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_pass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_pass.Controls.Add(this.tb_pass);
-            this.pnl_pass.Location = new System.Drawing.Point(294, 270);
+            this.pnl_pass.Location = new System.Drawing.Point(218, 270);
             this.pnl_pass.Name = "pnl_pass";
             this.pnl_pass.Size = new System.Drawing.Size(608, 45);
             this.pnl_pass.TabIndex = 13;
@@ -214,7 +215,7 @@ namespace BookShopManagementSystem
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.panel2.Controls.Add(this.tb_adress);
-            this.panel2.Location = new System.Drawing.Point(294, 192);
+            this.panel2.Location = new System.Drawing.Point(218, 192);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(608, 45);
             this.panel2.TabIndex = 12;
@@ -238,7 +239,7 @@ namespace BookShopManagementSystem
             this.pnl_email.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_email.Controls.Add(this.tb_email);
-            this.pnl_email.Location = new System.Drawing.Point(294, 112);
+            this.pnl_email.Location = new System.Drawing.Point(218, 112);
             this.pnl_email.Name = "pnl_email";
             this.pnl_email.Size = new System.Drawing.Size(608, 45);
             this.pnl_email.TabIndex = 11;
@@ -266,7 +267,7 @@ namespace BookShopManagementSystem
             this.btn_register.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_register.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_register.ForeColor = System.Drawing.Color.White;
-            this.btn_register.Location = new System.Drawing.Point(486, 489);
+            this.btn_register.Location = new System.Drawing.Point(410, 489);
             this.btn_register.Name = "btn_register";
             this.btn_register.Size = new System.Drawing.Size(200, 50);
             this.btn_register.TabIndex = 8;
@@ -278,7 +279,7 @@ namespace BookShopManagementSystem
             // 
             this.cb_is_seller.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cb_is_seller.AutoSize = true;
-            this.cb_is_seller.Location = new System.Drawing.Point(580, 404);
+            this.cb_is_seller.Location = new System.Drawing.Point(504, 404);
             this.cb_is_seller.Name = "cb_is_seller";
             this.cb_is_seller.Size = new System.Drawing.Size(139, 29);
             this.cb_is_seller.TabIndex = 7;
@@ -290,7 +291,7 @@ namespace BookShopManagementSystem
             this.lbl_name.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_name.BackColor = System.Drawing.Color.Transparent;
             this.lbl_name.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.lbl_name.Location = new System.Drawing.Point(294, 9);
+            this.lbl_name.Location = new System.Drawing.Point(218, 9);
             this.lbl_name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_name.Name = "lbl_name";
             this.lbl_name.Size = new System.Drawing.Size(66, 25);
@@ -302,7 +303,7 @@ namespace BookShopManagementSystem
             this.lbl_email.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_email.BackColor = System.Drawing.Color.Transparent;
             this.lbl_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.lbl_email.Location = new System.Drawing.Point(294, 84);
+            this.lbl_email.Location = new System.Drawing.Point(218, 84);
             this.lbl_email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(62, 25);
@@ -314,7 +315,7 @@ namespace BookShopManagementSystem
             this.lbl_pass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_pass.BackColor = System.Drawing.Color.Transparent;
             this.lbl_pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.lbl_pass.Location = new System.Drawing.Point(294, 239);
+            this.lbl_pass.Location = new System.Drawing.Point(218, 239);
             this.lbl_pass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_pass.Name = "lbl_pass";
             this.lbl_pass.Size = new System.Drawing.Size(95, 25);
@@ -326,7 +327,7 @@ namespace BookShopManagementSystem
             this.lbl_adress.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_adress.BackColor = System.Drawing.Color.Transparent;
             this.lbl_adress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.lbl_adress.Location = new System.Drawing.Point(294, 162);
+            this.lbl_adress.Location = new System.Drawing.Point(218, 162);
             this.lbl_adress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_adress.Name = "lbl_adress";
             this.lbl_adress.Size = new System.Drawing.Size(72, 25);
@@ -337,9 +338,10 @@ namespace BookShopManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1195, 639);
+            this.ClientSize = new System.Drawing.Size(1043, 639);
             this.Controls.Add(this.pnl_form);
             this.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Register";
             this.Text = "Register";

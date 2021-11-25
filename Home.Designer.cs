@@ -48,7 +48,7 @@ namespace BookShopManagementSystem
             this.lbl_header.AutoSize = true;
             this.lbl_header.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_header.ForeColor = System.Drawing.Color.White;
-            this.lbl_header.Location = new System.Drawing.Point(432, 18);
+            this.lbl_header.Location = new System.Drawing.Point(406, 18);
             this.lbl_header.Name = "lbl_header";
             this.lbl_header.Size = new System.Drawing.Size(433, 32);
             this.lbl_header.TabIndex = 0;
@@ -80,7 +80,7 @@ namespace BookShopManagementSystem
             this.pnl_header.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_header.Location = new System.Drawing.Point(0, 0);
             this.pnl_header.Name = "pnl_header";
-            this.pnl_header.Size = new System.Drawing.Size(1257, 70);
+            this.pnl_header.Size = new System.Drawing.Size(1205, 70);
             this.pnl_header.TabIndex = 2;
             // 
             // cmb_lang
@@ -95,7 +95,7 @@ namespace BookShopManagementSystem
             this.cmb_lang.Items.AddRange(new object[] {
             "ENG",
             "AZE"});
-            this.cmb_lang.Location = new System.Drawing.Point(1193, 17);
+            this.cmb_lang.Location = new System.Drawing.Point(1141, 17);
             this.cmb_lang.Name = "cmb_lang";
             this.cmb_lang.Size = new System.Drawing.Size(52, 33);
             this.cmb_lang.TabIndex = 1;
@@ -152,7 +152,7 @@ namespace BookShopManagementSystem
             this.pnl_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_body.Location = new System.Drawing.Point(289, 70);
             this.pnl_body.Name = "pnl_body";
-            this.pnl_body.Size = new System.Drawing.Size(968, 559);
+            this.pnl_body.Size = new System.Drawing.Size(916, 559);
             this.pnl_body.TabIndex = 4;
             // 
             // Home
@@ -160,13 +160,14 @@ namespace BookShopManagementSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1257, 629);
+            this.ClientSize = new System.Drawing.Size(1205, 629);
             this.Controls.Add(this.pnl_body);
             this.Controls.Add(this.pnl_menu);
             this.Controls.Add(this.pnl_header);
             this.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(1100, 670);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Book Shop";

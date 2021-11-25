@@ -29,7 +29,9 @@ namespace BookShopManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.pnl_form = new System.Windows.Forms.Panel();
+            this.cb_save_log = new System.Windows.Forms.CheckBox();
             this.lbl_status = new System.Windows.Forms.Label();
             this.cb_show_pass = new System.Windows.Forms.CheckBox();
             this.pnl_password = new System.Windows.Forms.Panel();
@@ -39,7 +41,6 @@ namespace BookShopManagementSystem
             this.btn_login = new System.Windows.Forms.Button();
             this.lbl_email = new System.Windows.Forms.Label();
             this.lbl_pass = new System.Windows.Forms.Label();
-            this.cb_save_log = new System.Windows.Forms.CheckBox();
             this.pnl_form.SuspendLayout();
             this.pnl_password.SuspendLayout();
             this.pnl_email.SuspendLayout();
@@ -58,15 +59,26 @@ namespace BookShopManagementSystem
             this.pnl_form.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_form.Location = new System.Drawing.Point(0, 0);
             this.pnl_form.Name = "pnl_form";
-            this.pnl_form.Size = new System.Drawing.Size(1163, 405);
+            this.pnl_form.Size = new System.Drawing.Size(955, 405);
             this.pnl_form.TabIndex = 0;
+            // 
+            // cb_save_log
+            // 
+            this.cb_save_log.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cb_save_log.AutoSize = true;
+            this.cb_save_log.Location = new System.Drawing.Point(404, 216);
+            this.cb_save_log.Name = "cb_save_log";
+            this.cb_save_log.Size = new System.Drawing.Size(148, 21);
+            this.cb_save_log.TabIndex = 81;
+            this.cb_save_log.Text = "Keep me logged in";
+            this.cb_save_log.UseVisualStyleBackColor = true;
             // 
             // lbl_status
             // 
             this.lbl_status.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_status.AutoSize = true;
             this.lbl_status.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_status.Location = new System.Drawing.Point(306, 252);
+            this.lbl_status.Location = new System.Drawing.Point(202, 252);
             this.lbl_status.Name = "lbl_status";
             this.lbl_status.Size = new System.Drawing.Size(0, 28);
             this.lbl_status.TabIndex = 80;
@@ -75,7 +87,7 @@ namespace BookShopManagementSystem
             // 
             this.cb_show_pass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cb_show_pass.AutoSize = true;
-            this.cb_show_pass.Location = new System.Drawing.Point(306, 216);
+            this.cb_show_pass.Location = new System.Drawing.Point(202, 216);
             this.cb_show_pass.Name = "cb_show_pass";
             this.cb_show_pass.Size = new System.Drawing.Size(128, 21);
             this.cb_show_pass.TabIndex = 79;
@@ -88,7 +100,7 @@ namespace BookShopManagementSystem
             this.pnl_password.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_password.Controls.Add(this.tb_password);
-            this.pnl_password.Location = new System.Drawing.Point(304, 150);
+            this.pnl_password.Location = new System.Drawing.Point(200, 150);
             this.pnl_password.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_password.Name = "pnl_password";
             this.pnl_password.Size = new System.Drawing.Size(550, 45);
@@ -113,7 +125,7 @@ namespace BookShopManagementSystem
             this.pnl_email.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnl_email.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.pnl_email.Controls.Add(this.tb_email);
-            this.pnl_email.Location = new System.Drawing.Point(304, 63);
+            this.pnl_email.Location = new System.Drawing.Point(200, 63);
             this.pnl_email.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_email.Name = "pnl_email";
             this.pnl_email.Size = new System.Drawing.Size(550, 45);
@@ -142,7 +154,7 @@ namespace BookShopManagementSystem
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_login.ForeColor = System.Drawing.Color.White;
-            this.btn_login.Location = new System.Drawing.Point(471, 293);
+            this.btn_login.Location = new System.Drawing.Point(367, 293);
             this.btn_login.MaximumSize = new System.Drawing.Size(180, 40);
             this.btn_login.MinimumSize = new System.Drawing.Size(180, 40);
             this.btn_login.Name = "btn_login";
@@ -157,7 +169,7 @@ namespace BookShopManagementSystem
             this.lbl_email.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_email.BackColor = System.Drawing.Color.Transparent;
             this.lbl_email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.lbl_email.Location = new System.Drawing.Point(304, 35);
+            this.lbl_email.Location = new System.Drawing.Point(200, 35);
             this.lbl_email.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(62, 25);
@@ -169,30 +181,20 @@ namespace BookShopManagementSystem
             this.lbl_pass.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_pass.BackColor = System.Drawing.Color.Transparent;
             this.lbl_pass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.lbl_pass.Location = new System.Drawing.Point(304, 120);
+            this.lbl_pass.Location = new System.Drawing.Point(200, 120);
             this.lbl_pass.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_pass.Name = "lbl_pass";
             this.lbl_pass.Size = new System.Drawing.Size(95, 25);
             this.lbl_pass.TabIndex = 75;
             this.lbl_pass.Text = "Password:";
             // 
-            // cb_save_log
-            // 
-            this.cb_save_log.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cb_save_log.AutoSize = true;
-            this.cb_save_log.Location = new System.Drawing.Point(508, 216);
-            this.cb_save_log.Name = "cb_save_log";
-            this.cb_save_log.Size = new System.Drawing.Size(148, 21);
-            this.cb_save_log.TabIndex = 81;
-            this.cb_save_log.Text = "Keep me logged in";
-            this.cb_save_log.UseVisualStyleBackColor = true;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 405);
+            this.ClientSize = new System.Drawing.Size(955, 405);
             this.Controls.Add(this.pnl_form);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

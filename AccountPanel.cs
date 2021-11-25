@@ -35,7 +35,7 @@ namespace BookShopManagementSystem
         private void btn_add_Click(object sender, EventArgs e)
         {
             BookForm bf = new BookForm(false);
-            bf.ShowDialog();
+            bf.Show();
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)

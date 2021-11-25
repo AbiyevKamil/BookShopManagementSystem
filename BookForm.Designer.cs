@@ -80,7 +80,7 @@ namespace BookShopManagementSystem
             this.pnl_name.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(550, 45);
-            this.pnl_name.TabIndex = 85;
+            this.pnl_name.TabIndex = 0;
             // 
             // tb_name
             // 
@@ -110,7 +110,7 @@ namespace BookShopManagementSystem
             this.btn_add.MinimumSize = new System.Drawing.Size(180, 40);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(180, 40);
-            this.btn_add.TabIndex = 84;
+            this.btn_add.TabIndex = 10;
             this.btn_add.Text = "ADD";
             this.btn_add.UseVisualStyleBackColor = false;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
@@ -134,7 +134,7 @@ namespace BookShopManagementSystem
             this.pnl_auth.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_auth.Name = "pnl_auth";
             this.pnl_auth.Size = new System.Drawing.Size(550, 45);
-            this.pnl_auth.TabIndex = 91;
+            this.pnl_auth.TabIndex = 1;
             // 
             // tb_auth
             // 
@@ -169,7 +169,7 @@ namespace BookShopManagementSystem
             this.pnl_category.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_category.Name = "pnl_category";
             this.pnl_category.Size = new System.Drawing.Size(550, 45);
-            this.pnl_category.TabIndex = 93;
+            this.pnl_category.TabIndex = 2;
             // 
             // tb_category
             // 
@@ -206,7 +206,7 @@ namespace BookShopManagementSystem
             this.tb_desc.Multiline = true;
             this.tb_desc.Name = "tb_desc";
             this.tb_desc.Size = new System.Drawing.Size(552, 76);
-            this.tb_desc.TabIndex = 43;
+            this.tb_desc.TabIndex = 3;
             // 
             // lbl_desc
             // 
@@ -227,7 +227,7 @@ namespace BookShopManagementSystem
             this.pnl_lang.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_lang.Name = "pnl_lang";
             this.pnl_lang.Size = new System.Drawing.Size(550, 45);
-            this.pnl_lang.TabIndex = 97;
+            this.pnl_lang.TabIndex = 4;
             // 
             // tb_lang
             // 
@@ -289,7 +289,7 @@ namespace BookShopManagementSystem
             this.btn_add_image.MinimumSize = new System.Drawing.Size(180, 40);
             this.btn_add_image.Name = "btn_add_image";
             this.btn_add_image.Size = new System.Drawing.Size(180, 40);
-            this.btn_add_image.TabIndex = 102;
+            this.btn_add_image.TabIndex = 8;
             this.btn_add_image.Text = "Choose image";
             this.btn_add_image.UseVisualStyleBackColor = false;
             this.btn_add_image.Click += new System.EventHandler(this.btn_add_image_Click);
@@ -332,7 +332,7 @@ namespace BookShopManagementSystem
             this.pnl_stock.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_stock.Name = "pnl_stock";
             this.pnl_stock.Size = new System.Drawing.Size(104, 45);
-            this.pnl_stock.TabIndex = 105;
+            this.pnl_stock.TabIndex = 5;
             // 
             // pnl_price
             // 
@@ -342,14 +342,14 @@ namespace BookShopManagementSystem
             this.pnl_price.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_price.Name = "pnl_price";
             this.pnl_price.Size = new System.Drawing.Size(104, 45);
-            this.pnl_price.TabIndex = 106;
+            this.pnl_price.TabIndex = 6;
             // 
             // dtp_published_date
             // 
             this.dtp_published_date.Location = new System.Drawing.Point(275, 520);
             this.dtp_published_date.Name = "dtp_published_date";
             this.dtp_published_date.Size = new System.Drawing.Size(290, 31);
-            this.dtp_published_date.TabIndex = 107;
+            this.dtp_published_date.TabIndex = 7;
             // 
             // lbl_publish_date
             // 
@@ -388,7 +388,7 @@ namespace BookShopManagementSystem
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.lbl_name);
             this.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;

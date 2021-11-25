@@ -82,7 +82,7 @@ namespace BookShopManagementSystem
             this.lbl_stock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_stock.AutoSize = true;
             this.lbl_stock.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_stock.Location = new System.Drawing.Point(799, 181);
+            this.lbl_stock.Location = new System.Drawing.Point(771, 181);
             this.lbl_stock.Name = "lbl_stock";
             this.lbl_stock.Size = new System.Drawing.Size(77, 25);
             this.lbl_stock.TabIndex = 21;
@@ -127,7 +127,7 @@ namespace BookShopManagementSystem
             this.btn_buy.FlatAppearance.BorderSize = 0;
             this.btn_buy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buy.ForeColor = System.Drawing.Color.White;
-            this.btn_buy.Location = new System.Drawing.Point(729, 240);
+            this.btn_buy.Location = new System.Drawing.Point(729, 242);
             this.btn_buy.Name = "btn_buy";
             this.btn_buy.Size = new System.Drawing.Size(150, 39);
             this.btn_buy.TabIndex = 16;
@@ -140,7 +140,7 @@ namespace BookShopManagementSystem
             this.lbl_price.AutoSize = true;
             this.lbl_price.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_price.ForeColor = System.Drawing.Color.Maroon;
-            this.lbl_price.Location = new System.Drawing.Point(761, 212);
+            this.lbl_price.Location = new System.Drawing.Point(752, 212);
             this.lbl_price.Name = "lbl_price";
             this.lbl_price.Size = new System.Drawing.Size(115, 25);
             this.lbl_price.TabIndex = 15;

@@ -96,10 +96,6 @@ namespace BookShopManagementSystem
                                 ShopCenter sc = new ShopCenter(new Home());
                                 sc.Show();
                             }
-                            else
-                            {
-                                this.Hide();
-                            }
 
                         }
                     }
@@ -116,7 +112,7 @@ namespace BookShopManagementSystem
 
         private void tb_price_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.';
         }
 
         private void tb_stock_KeyPress(object sender, KeyPressEventArgs e)
