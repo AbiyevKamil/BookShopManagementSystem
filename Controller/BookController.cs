@@ -178,7 +178,7 @@ namespace BookShopManagementSystem.Controller
         {
             string bookDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}";
             string bookFile = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/{book.Name}.txt";
-            string bookImg = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/{book.Name}.{book.Image.ImageFormat}";
+            string bookImg = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/{book.Name}{book.Image.ImageFormat}";
             string shopDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop";
             if (!Directory.Exists(shopDirectory))
             {
@@ -200,6 +200,7 @@ namespace BookShopManagementSystem.Controller
                 file.Close();
             }
             string bookData = $"{book.Name}\n{book.Author}\n{book.PublishedDate.ToString("yyyy MMMM dd")}\n{book.Description}";
+            File.WriteAllBytes(bookImg, book.Image.Data);
             File.WriteAllText(bookFile, bookData);
         }
 
@@ -210,6 +211,7 @@ namespace BookShopManagementSystem.Controller
             {
                 _context.Books.Remove(book);
                 _context.SaveChanges();
+                return true;
             }
 
             return false;
