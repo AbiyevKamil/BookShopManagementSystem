@@ -331,7 +331,7 @@ namespace BookShopManagementSystem
             this.lbl_adress.Name = "lbl_adress";
             this.lbl_adress.Size = new System.Drawing.Size(72, 25);
             this.lbl_adress.TabIndex = 74;
-            this.lbl_adress.Text = "Adress:";
+            this.lbl_adress.Text = "Address:";
             // 
             // Register
             // 

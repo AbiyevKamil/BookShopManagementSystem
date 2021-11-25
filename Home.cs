@@ -11,12 +11,17 @@ using System.Windows.Forms;
 using BookShopManagementSystem.Helper;
 using BookShopManagementSystem.Model;
 using System.Data.Entity;
+using System.Reflection;
+using System.Resources;
+using BookShopManagementSystem.Controller;
 
 namespace BookShopManagementSystem
 {
     public partial class Home : Form
     {
         private DataContext context = new DataContext();
+        private SettingsController _settings = new SettingsController();
+        private ResourceManager rm;
         private Button currentButton;
         private Form currentForm;
         public Home()
@@ -86,14 +91,43 @@ namespace BookShopManagementSystem
 
         private void Home_Load(object sender, EventArgs e)
         {
+            string savedLang = _settings.GetLang();
+            switch (savedLang)
+            {
+                case "ENG":
+                    MakeENG();
+                    break;
+                case "AZE":
+                    MakeAZE();
+                    break;
+            }
+            cmb_lang.SelectedIndex = 0;
             //Book book = context.Books.Include(i => i.Image).FirstOrDefault();
             //Image image = ImageHelper.ByteArrayToImage(book.Image.Data);
             //MessageBox.Show(image.Height.ToString());
+        }
+
+        public void MakeAZE()
+        {
+            rm = new ResourceManager("BookShopManagementSystem.aze", Assembly.GetExecutingAssembly());
+
+            _settings.SetLang("AZE");
+        }
+
+        public void MakeENG()
+        {
+
+        }
+
+        private void cmb_lang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
+
     }
 }

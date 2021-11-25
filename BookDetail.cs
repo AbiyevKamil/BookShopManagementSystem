@@ -29,6 +29,7 @@ namespace BookShopManagementSystem
         {
             InitializeComponent();
             this.id = id;
+            this.auth = auth;
             this.title = title;
             this.desc = desc;
             this.category = category;

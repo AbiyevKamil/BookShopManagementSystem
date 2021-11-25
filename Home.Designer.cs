@@ -33,6 +33,7 @@ namespace BookShopManagementSystem
             this.lbl_header = new System.Windows.Forms.Label();
             this.btn_register = new System.Windows.Forms.Button();
             this.pnl_header = new System.Windows.Forms.Panel();
+            this.cmb_lang = new System.Windows.Forms.ComboBox();
             this.pnl_menu = new System.Windows.Forms.Panel();
             this.btn_continue = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
@@ -74,12 +75,30 @@ namespace BookShopManagementSystem
             // pnl_header
             // 
             this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
+            this.pnl_header.Controls.Add(this.cmb_lang);
             this.pnl_header.Controls.Add(this.lbl_header);
             this.pnl_header.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_header.Location = new System.Drawing.Point(0, 0);
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(1257, 70);
             this.pnl_header.TabIndex = 2;
+            // 
+            // cmb_lang
+            // 
+            this.cmb_lang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmb_lang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
+            this.cmb_lang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmb_lang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_lang.ForeColor = System.Drawing.Color.White;
+            this.cmb_lang.FormattingEnabled = true;
+            this.cmb_lang.Items.AddRange(new object[] {
+            "ENG",
+            "AZE"});
+            this.cmb_lang.Location = new System.Drawing.Point(1193, 17);
+            this.cmb_lang.Name = "cmb_lang";
+            this.cmb_lang.Size = new System.Drawing.Size(52, 33);
+            this.cmb_lang.TabIndex = 1;
+            this.cmb_lang.SelectedIndexChanged += new System.EventHandler(this.cmb_lang_SelectedIndexChanged);
             // 
             // pnl_menu
             // 
@@ -168,6 +187,7 @@ namespace BookShopManagementSystem
         private System.Windows.Forms.Button btn_continue;
         private System.Windows.Forms.Button btn_login;
         private System.Windows.Forms.Panel pnl_body;
+        private System.Windows.Forms.ComboBox cmb_lang;
     }
 }
 
