@@ -57,7 +57,7 @@ namespace BookShopManagementSystem.Controller
                 ini.Write("Name", registeredUser.Name);
                 ini.Write("Surname", registeredUser.Surname);
                 ini.Write("Budget", registeredUser.Budget.ToString());
-                ini.Write("Adress", registeredUser.Address);
+                ini.Write("Address", registeredUser.Address);
                 ini.Write("Email", registeredUser.Email);
                 ini.Write("Password", registeredUser.Password);
                 ini.Write("IsSeller", registeredUser.IsSeller.ToString());
@@ -76,25 +76,30 @@ namespace BookShopManagementSystem.Controller
             string surname = ini.Read("Surname");
             string budget = ini.Read("Budget");
             string email = ini.Read("Email");
-            string adress = ini.Read("Adress");
+            string address = ini.Read("Address");
             string password = ini.Read("Password");
             string isSeller = ini.Read("IsSeller");
 
             if (String.IsNullOrEmpty(id)) return null;
-
-            User user = new User()
+            int Id = Convert.ToInt32(id);
+            using (var tempContext = new DataContext())
             {
-                Id = Convert.ToInt32(id),
-                Name = name,
-                Surname = surname,
-                Email = email,
-                Budget = Convert.ToInt32(budget),
-                Address = adress,
-                Password = password,
-                IsSeller = Convert.ToBoolean(isSeller)
-            };
+                User updatedUser = tempContext.Users.FirstOrDefault(i => i.Id == Id);
+                ini.Write("Budget", updatedUser != null ? updatedUser.Budget.ToString() : budget);
+                User user = new User()
+                {
+                    Id = Id,
+                    Name = name,
+                    Surname = surname,
+                    Email = email,
+                    Budget = updatedUser != null ? updatedUser.Budget : Convert.ToDouble(budget),
+                    Address = address,
+                    Password = password,
+                    IsSeller = Convert.ToBoolean(isSeller),
+                };
 
-            return user;
+                return user;
+            }
         }
 
         public void DeleteLocalData()
@@ -129,6 +134,7 @@ namespace BookShopManagementSystem.Controller
                 }
 
                 _context.Users.Remove(user);
+                _context.SaveChanges();
             }
         }
 

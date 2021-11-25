@@ -56,7 +56,7 @@ namespace BookShopManagementSystem
                 btn_buy.IsAccessible = true;
                 lbl_stock.ForeColor = Color.Green;
                 lbl_stock.Text = "In Stock";
-                btn_buy.Click += new EventHandler(btn_buyClick);
+                btn_buy.Click += new EventHandler(btn_buy_Click);
             }
             else
             {
@@ -67,7 +67,7 @@ namespace BookShopManagementSystem
             }
         }
 
-        public void btn_buyClick(object sender, EventArgs e)
+        public void btn_buy_Click(object sender, EventArgs e)
         {
             string bookDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{Name}";
             bool status = _bookController.BuyBook(id);

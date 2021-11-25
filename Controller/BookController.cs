@@ -160,6 +160,7 @@ namespace BookShopManagementSystem.Controller
                         {
                             user.Budget -= book.Price;
                             book.Stock -= 1;
+                            book.User.Budget += book.Price;
                             AddToDesktop(book);
                             _context.SaveChanges();
                             return true;
@@ -178,6 +179,8 @@ namespace BookShopManagementSystem.Controller
         {
             string bookDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}";
             string bookFile = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/{book.Name}.txt";
+            string chequeFile = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/BookShop_{book.Name}_cheque.txt";
+            string chequeData = $"BookShop\n\nDate: {DateTime.Today.ToString("F")}\n\nBook: {book.Name}\nAuthor: {book.Author}\nCount: 1\nPrice: {book.Price.ToString("c")}\n---------------------------------\nTotal cost: {book.Price.ToString("C")}";
             string bookImg = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{book.Name}/{book.Name}{book.Image.ImageFormat}";
             string shopDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop";
             if (!Directory.Exists(shopDirectory))
@@ -202,6 +205,7 @@ namespace BookShopManagementSystem.Controller
             string bookData = $"{book.Name}\n{book.Author}\n{book.PublishedDate.ToString("yyyy MMMM dd")}\n{book.Description}";
             File.WriteAllBytes(bookImg, book.Image.Data);
             File.WriteAllText(bookFile, bookData);
+            File.WriteAllText(chequeFile, chequeData);
         }
 
         public bool DeleteBookById(int id)

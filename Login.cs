@@ -57,6 +57,8 @@ namespace BookShopManagementSystem
                     if (isLoggedIn)
                     {
                         home.Hide();
+                        tb_email.Text = "";
+                        tb_password.Text = "";
                         ShopCenter sc = new ShopCenter(home);
                         sc.Show();
                     }

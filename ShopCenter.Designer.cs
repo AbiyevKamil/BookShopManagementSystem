@@ -31,6 +31,7 @@ namespace BookShopManagementSystem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopCenter));
             this.pnl_header = new System.Windows.Forms.Panel();
+            this.btn_admin_panel = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
             this.btn_sell_book = new System.Windows.Forms.Button();
             this.lbl_header = new System.Windows.Forms.Label();
@@ -47,7 +48,8 @@ namespace BookShopManagementSystem
             this.pnl_query = new System.Windows.Forms.Panel();
             this.btn_search = new System.Windows.Forms.Button();
             this.tb_query = new System.Windows.Forms.TextBox();
-            this.btn_admin_panel = new System.Windows.Forms.Button();
+            this.btn_delete_account = new System.Windows.Forms.Button();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.pnl_header.SuspendLayout();
             this.pnl_shop.SuspendLayout();
             this.pnl_filter.SuspendLayout();
@@ -59,6 +61,7 @@ namespace BookShopManagementSystem
             // pnl_header
             // 
             this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
+            this.pnl_header.Controls.Add(this.btn_delete_account);
             this.pnl_header.Controls.Add(this.btn_admin_panel);
             this.pnl_header.Controls.Add(this.btn_login);
             this.pnl_header.Controls.Add(this.btn_sell_book);
@@ -72,6 +75,23 @@ namespace BookShopManagementSystem
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(1320, 112);
             this.pnl_header.TabIndex = 0;
+            // 
+            // btn_admin_panel
+            // 
+            this.btn_admin_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_admin_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
+            this.btn_admin_panel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_admin_panel.FlatAppearance.BorderSize = 0;
+            this.btn_admin_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_admin_panel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_admin_panel.ForeColor = System.Drawing.Color.White;
+            this.btn_admin_panel.Location = new System.Drawing.Point(1170, 0);
+            this.btn_admin_panel.Name = "btn_admin_panel";
+            this.btn_admin_panel.Size = new System.Drawing.Size(150, 40);
+            this.btn_admin_panel.TabIndex = 4;
+            this.btn_admin_panel.Text = "Admin Panel";
+            this.btn_admin_panel.UseVisualStyleBackColor = false;
+            this.btn_admin_panel.Click += new System.EventHandler(this.btn_admin_panel_Click);
             // 
             // btn_login
             // 
@@ -178,6 +198,7 @@ namespace BookShopManagementSystem
             // 
             // pnl_filter
             // 
+            this.pnl_filter.Controls.Add(this.btn_refresh);
             this.pnl_filter.Controls.Add(this.pnl_stock_filter);
             this.pnl_filter.Controls.Add(this.pnl_cmb);
             this.pnl_filter.Controls.Add(this.pnl_query);
@@ -281,22 +302,36 @@ namespace BookShopManagementSystem
             this.tb_query.Size = new System.Drawing.Size(453, 27);
             this.tb_query.TabIndex = 43;
             // 
-            // btn_admin_panel
+            // btn_delete_account
             // 
-            this.btn_admin_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_admin_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
-            this.btn_admin_panel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_admin_panel.FlatAppearance.BorderSize = 0;
-            this.btn_admin_panel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_admin_panel.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_admin_panel.ForeColor = System.Drawing.Color.White;
-            this.btn_admin_panel.Location = new System.Drawing.Point(1170, 0);
-            this.btn_admin_panel.Name = "btn_admin_panel";
-            this.btn_admin_panel.Size = new System.Drawing.Size(150, 40);
-            this.btn_admin_panel.TabIndex = 4;
-            this.btn_admin_panel.Text = "Admin Panel";
-            this.btn_admin_panel.UseVisualStyleBackColor = false;
-            this.btn_admin_panel.Click += new System.EventHandler(this.btn_admin_panel_Click);
+            this.btn_delete_account.BackColor = System.Drawing.Color.Maroon;
+            this.btn_delete_account.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_delete_account.FlatAppearance.BorderSize = 0;
+            this.btn_delete_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_delete_account.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete_account.ForeColor = System.Drawing.Color.White;
+            this.btn_delete_account.Location = new System.Drawing.Point(1133, -1);
+            this.btn_delete_account.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_delete_account.Name = "btn_delete_account";
+            this.btn_delete_account.Size = new System.Drawing.Size(187, 45);
+            this.btn_delete_account.TabIndex = 5;
+            this.btn_delete_account.Text = "Delete my account";
+            this.btn_delete_account.UseVisualStyleBackColor = false;
+            this.btn_delete_account.Click += new System.EventHandler(this.btn_delete_account_Click);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_refresh.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_refresh.BackgroundImage")));
+            this.btn_refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_refresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_refresh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.Location = new System.Drawing.Point(1142, 9);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(46, 42);
+            this.btn_refresh.TabIndex = 102;
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // ShopCenter
             // 
@@ -346,5 +381,7 @@ namespace BookShopManagementSystem
         private System.Windows.Forms.Panel pnl_stock_filter;
         private System.Windows.Forms.ComboBox cmb_stock_filter;
         private System.Windows.Forms.Button btn_admin_panel;
+        private System.Windows.Forms.Button btn_delete_account;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

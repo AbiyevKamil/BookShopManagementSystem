@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookShopManagementSystem.Controller;
@@ -48,36 +49,41 @@ namespace BookShopManagementSystem
                 lbl_user.Text = "Not signed in";
                 lbl_user.ForeColor = Color.Maroon;
                 //lbl_bought_books.Text += " 0";
-                lbl_budget.Text += " 0";
+                lbl_budget.Visible = false;
                 btn_logout.Visible = false;
-                btn_logout.IsAccessible = false;
+                btn_logout.Enabled = false;
                 btn_sell_book.Visible = false;
-                btn_sell_book.IsAccessible = false;
+                btn_sell_book.Enabled = false;
                 btn_login.Visible = true;
-                btn_login.IsAccessible = true;
+                btn_login.Enabled = true;
                 btn_admin_panel.Visible = false;
-                btn_admin_panel.IsAccessible = false;
+                btn_admin_panel.Enabled = false;
+                btn_delete_account.Visible = false;
+                btn_delete_account.Enabled = false;
             }
             else
             {
                 if (!user.IsSeller)
                 {
+                    btn_sell_book.Visible = false;
+                    btn_sell_book.Enabled = false;
                     btn_admin_panel.Visible = false;
-                    btn_admin_panel.IsAccessible = false;
+                    btn_admin_panel.Enabled = false;
+                }
+                else
+                {
+                    btn_delete_account.Visible = false;
+                    btn_delete_account.Enabled = false;
                 }
                 btn_login.Visible = false;
-                btn_login.IsAccessible = false;
+                btn_login.Enabled = false;
                 lbl_user.Text += $"{user.Name.ToUpper()} {user.Surname.ToUpper()}";
-                lbl_budget.Text += $" {user.Budget}";
-                //lbl_bought_books.Text += $"";
+                lbl_budget.Text += $" {user.Budget.ToString("C")}";
             }
 
-            books = _bookController.GetAllBooks();
-            foreach (var book in books)
-            {
-                GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
-            }
+            FillBooks();
         }
+
 
         private void ShopCenter_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -108,16 +114,19 @@ namespace BookShopManagementSystem
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            StartPointX = 236;
-            StartPointY = pnl_body.AutoScrollPosition.Y;
-            string query = tb_query.Text.Trim();
-            string type = cmb_type.SelectedItem.ToString();
-            string inStock = cmb_stock_filter.SelectedItem.ToString();
-            books = _bookController.GetBookByQuery(query, type, inStock);
-            pnl_body.Controls.Clear();
-            foreach (var book in books)
+            if (!String.IsNullOrEmpty(tb_query.Text))
             {
-                GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
+                StartPointX = 236;
+                StartPointY = pnl_body.AutoScrollPosition.Y;
+                string query = tb_query.Text.Trim();
+                string type = cmb_type.SelectedItem.ToString();
+                string inStock = cmb_stock_filter.SelectedItem.ToString();
+                books = _bookController.GetBookByQuery(query, type, inStock);
+                pnl_body.Controls.Clear();
+                foreach (var book in books)
+                {
+                    GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
+                }
             }
         }
 
@@ -127,9 +136,33 @@ namespace BookShopManagementSystem
             ap.ShowDialog();
         }
 
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            user = _userController.GetUserDataFromLocal();
+            if (user != null)
+            {
+                lbl_budget.Text = $"Budget: {user.Budget.ToString("C")}";
+            }
+
+            tb_query.Text = "";
+            cmb_type.SelectedIndex = 0;
+            cmb_stock_filter.SelectedIndex = 0;
+            FillBooks();
+        }
+
+        public void FillBooks()
+        {
+            StartPointX = 236;
+            StartPointY = pnl_body.AutoScrollPosition.Y;
+            books = _bookController.GetAllBooks();
+            pnl_body.Controls.Clear();
+            foreach (var book in books)
+            {
+                GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
+            }
+        }
 
         // Generators
-
 
 
         public void GenerateItem(int id, string title, string auth, string desc, string category, string pd, string language, int stock, double price, byte[] bytes)
@@ -146,7 +179,7 @@ namespace BookShopManagementSystem
             panel.Controls.Add(GenerateDesc(itemName));
             panel.Controls.Add(GenerateId(itemName, id));
             panel.Controls.Add(GenerateMore(itemName, id, title, auth, desc, category, pd, language, stock, price, bytes));
-            panel.Controls.Add(GenerateBuy(itemName, stock));
+            panel.Controls.Add(GenerateBuy(itemName, stock, id));
             panel.Controls.Add(GeneratePrice(itemName, price));
             panel.Controls.Add(GeneratePhoto(itemName, bytes));
             panel.Controls.Add(GenerateAuth(itemName, auth));
@@ -215,7 +248,7 @@ namespace BookShopManagementSystem
             return label;
         }
 
-        public Button GenerateBuy(string itemName, int stock)
+        public Button GenerateBuy(string itemName, int stock, int id)
         {
             Button button = new Button();
             button.BackColor = Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
@@ -230,16 +263,27 @@ namespace BookShopManagementSystem
             button.Text = "Buy";
             if (user == null)
             {
-                button.IsAccessible = false;
+                button.Enabled = false;
                 button.Visible = false;
             }
             else
             {
-                button.IsAccessible = stock > 0 ? true : false;
+                button.Enabled = stock > 0 ? true : false;
                 button.Click += new EventHandler(delegate (object sender, EventArgs e)
                 {
-
                     // Buy Book
+                    string bookDirectory = $@"C:/Users/{Environment.UserName}/Desktop/BookShop/{Name}";
+                    bool status = _bookController.BuyBook(id);
+                    if (status)
+                    {
+                        MessageBox.Show(
+                            $"You bought {Name} book successfully. Now you can go to {bookDirectory} path and enjoy your new book. :)",
+                            "Book Shop", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        MessageBox.Show("You can't buy this book. This problem may occur in case of: \n1. The seller is you.\n2. You don't have enough budget.\n3. The book is out of stock.", "Book Shop", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 });
             }
 
@@ -369,6 +413,19 @@ namespace BookShopManagementSystem
             label.Text = category.Substring(0, 1).ToUpper() + category.Substring(1);
             return label;
         }
+
+        private void btn_delete_account_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Do you want to delete your account", "Book Shop", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (dr == DialogResult.OK)
+            {
+                _userController.DeleteUser();
+                _userController.Logout();
+            }
+            this.Hide();
+            home.Show();
+        }
+
 
     }
 }

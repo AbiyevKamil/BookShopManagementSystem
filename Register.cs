@@ -45,13 +45,13 @@ namespace BookShopManagementSystem
             StringBuilder sb = new StringBuilder();
             string name = tb_name.Text.Trim();
             string surname = tb_surname.Text.Trim();
-            string adress = tb_adress.Text.Trim();
+            string address = tb_adress.Text.Trim();
             string email = tb_email.Text.Trim();
             string password = tb_pass.Text.Trim();
             string passwordAgain = tb_pass_confirm.Text.Trim();
             bool isSeller = cb_is_seller.Checked;
             if (!(String.IsNullOrEmpty(Name) || String.IsNullOrEmpty(surname) ||
-                                                 String.IsNullOrEmpty(adress) ||
+                                                 String.IsNullOrEmpty(address) ||
                                                  String.IsNullOrEmpty(email) ||
                                                  String.IsNullOrEmpty(password)))
             {
@@ -66,7 +66,7 @@ namespace BookShopManagementSystem
                             {
                                 Name = name,
                                 Surname = surname,
-                                Adress = adress,
+                                Adress = address,
                                 Email = email,
                                 IsSeller = isSeller,
                                 Password = password,
