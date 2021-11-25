@@ -46,9 +46,7 @@ namespace BookShopManagementSystem
                 this.Hide();
                 Home home = new Home();
                 if (user == null)
-                {
                     home.Show();
-                }
                 else
                 {
                     ShopCenter sc = new ShopCenter(home);

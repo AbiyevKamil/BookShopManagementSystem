@@ -84,7 +84,7 @@ namespace BookShopManagementSystem
             this.pnl_price.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_price.Name = "pnl_price";
             this.pnl_price.Size = new System.Drawing.Size(104, 45);
-            this.pnl_price.TabIndex = 125;
+            this.pnl_price.TabIndex = 6;
             // 
             // tb_price
             // 
@@ -110,7 +110,7 @@ namespace BookShopManagementSystem
             this.pnl_stock.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_stock.Name = "pnl_stock";
             this.pnl_stock.Size = new System.Drawing.Size(104, 45);
-            this.pnl_stock.TabIndex = 124;
+            this.pnl_stock.TabIndex = 5;
             // 
             // tb_stock
             // 
@@ -140,7 +140,7 @@ namespace BookShopManagementSystem
             this.btn_add_image.MinimumSize = new System.Drawing.Size(180, 40);
             this.btn_add_image.Name = "btn_add_image";
             this.btn_add_image.Size = new System.Drawing.Size(180, 40);
-            this.btn_add_image.TabIndex = 123;
+            this.btn_add_image.TabIndex = 8;
             this.btn_add_image.Text = "Choose image";
             this.btn_add_image.UseVisualStyleBackColor = false;
             this.btn_add_image.Click += new System.EventHandler(this.btn_add_image_Click);
@@ -201,7 +201,7 @@ namespace BookShopManagementSystem
             this.dtp_published_date.Location = new System.Drawing.Point(277, 526);
             this.dtp_published_date.Name = "dtp_published_date";
             this.dtp_published_date.Size = new System.Drawing.Size(290, 30);
-            this.dtp_published_date.TabIndex = 126;
+            this.dtp_published_date.TabIndex = 7;
             // 
             // tb_desc
             // 
@@ -213,7 +213,7 @@ namespace BookShopManagementSystem
             this.tb_desc.Multiline = true;
             this.tb_desc.Name = "tb_desc";
             this.tb_desc.Size = new System.Drawing.Size(552, 76);
-            this.tb_desc.TabIndex = 109;
+            this.tb_desc.TabIndex = 3;
             // 
             // pnl_lang
             // 
@@ -224,7 +224,7 @@ namespace BookShopManagementSystem
             this.pnl_lang.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_lang.Name = "pnl_lang";
             this.pnl_lang.Size = new System.Drawing.Size(550, 45);
-            this.pnl_lang.TabIndex = 120;
+            this.pnl_lang.TabIndex = 4;
             // 
             // lbl_desc
             // 
@@ -261,7 +261,7 @@ namespace BookShopManagementSystem
             this.pnl_category.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_category.Name = "pnl_category";
             this.pnl_category.Size = new System.Drawing.Size(550, 45);
-            this.pnl_category.TabIndex = 117;
+            this.pnl_category.TabIndex = 2;
             // 
             // lbl_auth
             // 
@@ -298,7 +298,7 @@ namespace BookShopManagementSystem
             this.pnl_auth.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_auth.Name = "pnl_auth";
             this.pnl_auth.Size = new System.Drawing.Size(550, 45);
-            this.pnl_auth.TabIndex = 115;
+            this.pnl_auth.TabIndex = 1;
             // 
             // btn_update
             // 
@@ -314,7 +314,7 @@ namespace BookShopManagementSystem
             this.btn_update.MinimumSize = new System.Drawing.Size(180, 40);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(180, 40);
-            this.btn_update.TabIndex = 111;
+            this.btn_update.TabIndex = 9;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = false;
             this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
@@ -375,7 +375,7 @@ namespace BookShopManagementSystem
             this.pnl_name.MaximumSize = new System.Drawing.Size(550, 45);
             this.pnl_name.Name = "pnl_name";
             this.pnl_name.Size = new System.Drawing.Size(550, 45);
-            this.pnl_name.TabIndex = 112;
+            this.pnl_name.TabIndex = 0;
             // 
             // BookUpdateForm
             // 

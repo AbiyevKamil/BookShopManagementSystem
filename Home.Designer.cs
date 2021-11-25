@@ -88,6 +88,7 @@ namespace BookShopManagementSystem
             this.cmb_lang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmb_lang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
             this.cmb_lang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmb_lang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_lang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmb_lang.ForeColor = System.Drawing.Color.White;
             this.cmb_lang.FormattingEnabled = true;

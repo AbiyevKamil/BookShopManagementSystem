@@ -68,7 +68,7 @@ namespace BookShopManagementSystem
             {
                 if (category.Length < 30 && lang.Length < 30 && auth.Length < 30 && name.Length < 30)
                 {
-                    if (Regex.IsMatch(price, @"^\d+$") && Regex.IsMatch(stock, @"^\d+$"))
+                    if ((Regex.IsMatch(price, @"^\d+$") || Regex.IsMatch(price, @"[+-]?([0-9]*[.])?[0-9]+")) && Regex.IsMatch(stock, @"^\d+$"))
                     {
                         if (image == null)
                         {
@@ -84,8 +84,8 @@ namespace BookShopManagementSystem
                                 Category = category,
                                 Description = desc,
                                 Language = lang,
-                                Stock = Int32.Parse(stock),
-                                Price = Int32.Parse(price),
+                                Stock = Convert.ToInt32(stock),
+                                Price = Convert.ToDouble(price),
                                 PublishedDate = pd,
                                 UserId = user.Id
                             };

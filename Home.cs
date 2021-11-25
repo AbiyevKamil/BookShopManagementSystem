@@ -21,12 +21,24 @@ namespace BookShopManagementSystem
     {
         private DataContext context = new DataContext();
         private SettingsController _settings = new SettingsController();
-        private ResourceManager rm;
+        private ResourceManager rm = new ResourceManager("BookShopManagementSystem.eng", Assembly.GetExecutingAssembly());
         private Button currentButton;
         private Form currentForm;
         public Home()
         {
             InitializeComponent();
+            string savedLang = _settings.GetLang();
+            switch (savedLang)
+            {
+                case "ENG":
+                    cmb_lang.SelectedIndex = 0;
+                    MakeENG();
+                    break;
+                case "AZE":
+                    cmb_lang.SelectedIndex = 1;
+                    MakeAZE();
+                    break;
+            }
             AddNewForm(btn_register, "REGISTER");
         }
 
@@ -43,21 +55,22 @@ namespace BookShopManagementSystem
         {
             if (button != currentButton)
             {
+                currentButton = button;
                 DisableAllButtons();
                 if (currentForm != null) currentForm.Close();
                 button.BackColor = Color.FromArgb(225, 38, 93);
                 switch (formName)
                 {
                     case "REGISTER":
-                        Register register = new Register(this, btn_login);
+                        Register register = new Register(this, btn_login, rm);
                         currentForm = register;
                         break;
                     case "LOGIN":
-                        Login login = new Login(this);
+                        Login login = new Login(this, rm);
                         currentForm = login;
                         break;
                     default:
-                        Register defaultRegister = new Register(this, btn_login);
+                        Register defaultRegister = new Register(this, btn_login, rm);
                         currentForm = defaultRegister;
                         break;
                 }
@@ -91,17 +104,7 @@ namespace BookShopManagementSystem
 
         private void Home_Load(object sender, EventArgs e)
         {
-            string savedLang = _settings.GetLang();
-            switch (savedLang)
-            {
-                case "ENG":
-                    MakeENG();
-                    break;
-                case "AZE":
-                    MakeAZE();
-                    break;
-            }
-            cmb_lang.SelectedIndex = 0;
+
             //Book book = context.Books.Include(i => i.Image).FirstOrDefault();
             //Image image = ImageHelper.ByteArrayToImage(book.Image.Data);
             //MessageBox.Show(image.Height.ToString());
@@ -110,8 +113,11 @@ namespace BookShopManagementSystem
         public void MakeAZE()
         {
             rm = new ResourceManager("BookShopManagementSystem.aze", Assembly.GetExecutingAssembly());
-
+            btn_login.Text = rm.GetString("login");
+            btn_register.Text = rm.GetString("register");
+            btn_continue.Text = rm.GetString("continue");
             _settings.SetLang("AZE");
+            if (currentButton != null) currentButton.PerformClick();
         }
 
         public void MakeENG()
@@ -121,7 +127,16 @@ namespace BookShopManagementSystem
 
         private void cmb_lang_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            string lang = cmb_lang.SelectedItem.ToString();
+            switch (lang)
+            {
+                case "ENG":
+                    MakeENG();
+                    break;
+                case "AZE":
+                    MakeAZE();
+                    break;
+            }
         }
 
         private void Home_FormClosing(object sender, FormClosingEventArgs e)

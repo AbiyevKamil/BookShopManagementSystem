@@ -74,7 +74,7 @@ namespace BookShopManagementSystem
             {
                 if (categoryNew.Length < 30 && langNew.Length < 30 && authNew.Length < 30 && Name.Length < 30)
                 {
-                    if (Regex.IsMatch(priceNew, @"^\d+$") && Regex.IsMatch(stockNew, @"^\d+$"))
+                    if ((Regex.IsMatch(priceNew, @"^\d+$") || Regex.IsMatch(priceNew, @"[+-]?([0-9]*[.])?[0-9]+")) && Regex.IsMatch(stockNew, @"^\d+$"))
                     {
                         Book book = new Book()
                         {
@@ -85,7 +85,7 @@ namespace BookShopManagementSystem
                             Description = descNew,
                             Language = langNew,
                             Stock = Convert.ToInt32(stockNew),
-                            Price = Convert.ToInt32(priceNew),
+                            Price = Convert.ToDouble(priceNew),
                             Image = image,
                             PublishedDate = pd,
                         };
@@ -128,7 +128,7 @@ namespace BookShopManagementSystem
 
         private void tb_price_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.';
         }
 
         private void tb_stock_KeyPress(object sender, KeyPressEventArgs e)

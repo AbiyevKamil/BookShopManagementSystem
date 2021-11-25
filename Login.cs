@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -18,14 +19,21 @@ namespace BookShopManagementSystem
         private readonly UserController _userController = new UserController();
         private readonly Regex _emailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         private Home home;
-        public Login(Home home)
+        private ResourceManager rm;
+        public Login(Home home, ResourceManager rm)
         {
             InitializeComponent();
             this.home = home;
+            this.rm = rm;
         }
 
         private void Login_Load(object sender, EventArgs e)
         {
+            lbl_email.Text = $"{rm.GetString("email")}:";
+            cb_show_pass.Text = rm.GetString("showpass");
+            lbl_pass.Text = $"{rm.GetString("password")}:";
+            cb_save_log.Text = rm.GetString("keep");
+            btn_login.Text = rm.GetString("login");
             tb_password.PasswordChar = '•';
             pnl_form.AutoScroll = true;
             pnl_form.AutoScrollMargin = new Size(10, 10);

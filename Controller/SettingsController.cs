@@ -30,7 +30,8 @@ namespace BookShopManagementSystem.Controller
         public string GetLang()
         {
             IniFile ini = new IniFile(settingsPath);
-            return ini.Read("Language") ?? "ENG";
+            string lang = ini.Read("Language");
+            return lang == null ? "ENG" : lang;
         }
     }
 }

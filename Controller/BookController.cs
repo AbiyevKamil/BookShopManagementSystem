@@ -85,33 +85,33 @@ namespace BookShopManagementSystem.Controller
             return book;
         }
 
-        public List<Book> GetBookByQuery(string query, string type, string inStock)
+        public List<Book> GetBookByQuery(string query, int type, int inStock)
         {
             bool stock = false;
             switch (inStock)
             {
-                case "All":
+                case 0:
                     if (String.IsNullOrEmpty(query))
                     {
                         return _context.Books.Include(i => i.Image).ToList();
                     }
                     switch (type)
                     {
-                        case "Name":
+                        case 0:
                             return _context.Books.Include(i => i.Image).Where(i => i.Name.Contains(query)).ToList();
-                        case "Author":
+                        case 1:
                             return _context.Books.Include(i => i.Image).Where(i => i.Author.Contains(query)).ToList();
-                        case "Category":
+                        case 2:
                             return _context.Books.Include(i => i.Image).Where(i => i.Category.Contains(query)).ToList();
-                        case "Language":
+                        case 3:
                             return _context.Books.Include(i => i.Image).Where(i => i.Language.Contains(query)).ToList();
                         default:
                             return _context.Books.Include(i => i.Image).ToList();
                     }
-                case "In Stock":
+                case 1:
                     stock = true;
                     break;
-                case "Out of Stock":
+                case 2:
                     stock = false;
                     break;
                 default:
@@ -121,19 +121,19 @@ namespace BookShopManagementSystem.Controller
 
             if (String.IsNullOrEmpty(query))
                 return _context.Books.Include(i => i.Image)
-                                    .Where(i => stock ? i.Stock > 0 : i.Stock == 0)
+                                    .Where(i => stock ? i.Stock > 0 : i.Stock <= 0)
                                     .ToList();
 
 
             switch (type)
             {
-                case "Name":
+                case 0:
                     return _context.Books.Include(i => i.Image).Where(i => i.Name.Contains(query) && (stock ? i.Stock > 0 : i.Stock == 0)).ToList();
-                case "Author":
+                case 1:
                     return _context.Books.Include(i => i.Image).Where(i => i.Author.Contains(query) && (stock ? i.Stock > 0 : i.Stock == 0)).ToList();
-                case "Category":
+                case 2:
                     return _context.Books.Include(i => i.Image).Where(i => i.Category.Contains(query) && (stock ? i.Stock > 0 : i.Stock == 0)).ToList();
-                case "Language":
+                case 3:
                     return _context.Books.Include(i => i.Image).Where(i => i.Language.Contains(query) && (stock ? i.Stock > 0 : i.Stock == 0)).ToList();
                 default:
                     return _context.Books.Include(i => i.Image).Where(i => stock ? i.Stock > 0 : i.Stock == 0).ToList();

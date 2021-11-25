@@ -97,6 +97,11 @@
     <Compile Include="Controller\BookController.cs" />
     <Compile Include="Controller\SettingsController.cs" />
     <Compile Include="Controller\UserController.cs" />
+    <Compile Include="eng.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>eng.resx</DependentUpon>
+    </Compile>
     <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Helper\IniFile.cs" />
     <Compile Include="Home.cs">
@@ -156,6 +161,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Components.resx">
       <DependentUpon>Components.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eng.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>eng.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

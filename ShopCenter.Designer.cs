@@ -31,6 +31,7 @@ namespace BookShopManagementSystem
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopCenter));
             this.pnl_header = new System.Windows.Forms.Panel();
+            this.lbl_not_signed = new System.Windows.Forms.Label();
             this.btn_delete_account = new System.Windows.Forms.Button();
             this.btn_admin_panel = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
@@ -61,6 +62,7 @@ namespace BookShopManagementSystem
             // pnl_header
             // 
             this.pnl_header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(26)))), ((int)(((byte)(42)))));
+            this.pnl_header.Controls.Add(this.lbl_not_signed);
             this.pnl_header.Controls.Add(this.btn_delete_account);
             this.pnl_header.Controls.Add(this.btn_admin_panel);
             this.pnl_header.Controls.Add(this.btn_login);
@@ -75,6 +77,18 @@ namespace BookShopManagementSystem
             this.pnl_header.Name = "pnl_header";
             this.pnl_header.Size = new System.Drawing.Size(1320, 112);
             this.pnl_header.TabIndex = 0;
+            // 
+            // lbl_not_signed
+            // 
+            this.lbl_not_signed.AutoSize = true;
+            this.lbl_not_signed.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_not_signed.ForeColor = System.Drawing.Color.Maroon;
+            this.lbl_not_signed.Location = new System.Drawing.Point(6, 75);
+            this.lbl_not_signed.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_not_signed.Name = "lbl_not_signed";
+            this.lbl_not_signed.Size = new System.Drawing.Size(132, 25);
+            this.lbl_not_signed.TabIndex = 6;
+            this.lbl_not_signed.Text = "Not signed in";
             // 
             // btn_delete_account
             // 
@@ -384,5 +398,6 @@ namespace BookShopManagementSystem
         private System.Windows.Forms.Button btn_admin_panel;
         private System.Windows.Forms.Button btn_delete_account;
         private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.Label lbl_not_signed;
     }
 }

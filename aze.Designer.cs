@@ -88,11 +88,38 @@ namespace BookShopManagementSystem {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to büdcə.
+        ///   Looks up a localized string similar to Hamısı.
+        /// </summary>
+        internal static string all {
+            get {
+                return ResourceManager.GetString("all", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yazıçı.
+        /// </summary>
+        internal static string author {
+            get {
+                return ResourceManager.GetString("author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Büdcə.
         /// </summary>
         internal static string budget {
             get {
                 return ResourceManager.GetString("budget", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kateqoriya.
+        /// </summary>
+        internal static string category {
+            get {
+                return ResourceManager.GetString("category", resourceCulture);
             }
         }
         
@@ -151,11 +178,29 @@ namespace BookShopManagementSystem {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anbarda.
+        /// </summary>
+        internal static string instock {
+            get {
+                return ResourceManager.GetString("instock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Məni unutma.
         /// </summary>
         internal static string keep {
             get {
                 return ResourceManager.GetString("keep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dil.
+        /// </summary>
+        internal static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
             }
         }
         
@@ -192,6 +237,24 @@ namespace BookShopManagementSystem {
         internal static string name {
             get {
                 return ResourceManager.GetString("name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daxil olunmayıb.
+        /// </summary>
+        internal static string notsigned {
+            get {
+                return ResourceManager.GetString("notsigned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Anbarda deyil.
+        /// </summary>
+        internal static string outstock {
+            get {
+                return ResourceManager.GetString("outstock", resourceCulture);
             }
         }
         
@@ -250,7 +313,7 @@ namespace BookShopManagementSystem {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to kimi daxil olundu.
+        ///   Looks up a localized string similar to İstifadəçi adı.
         /// </summary>
         internal static string signed {
             get {

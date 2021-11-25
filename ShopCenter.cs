@@ -5,6 +5,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,6 +21,9 @@ namespace BookShopManagementSystem
     {
         private readonly UserController _userController = new UserController();
         private readonly BookController _bookController = new BookController();
+        private readonly SettingsController _settings = new SettingsController();
+        private readonly ResourceManager rm;
+        private string lang;
         private Home home;
         private User user;
         private List<Book> books;
@@ -35,7 +40,36 @@ namespace BookShopManagementSystem
         {
             InitializeComponent();
             this.home = home;
+            lang = _settings.GetLang();
+            switch (lang)
+            {
+                case "AZE":
+                    rm = new ResourceManager("BookShopManagementSystem.aze", Assembly.GetExecutingAssembly());
+                    MakeAZE();
+                    break;
+            }
         }
+
+        public void MakeAZE()
+        {
+            lbl_budget.Text = $"{rm.GetString("budget")}:";
+            lbl_user.Text = $"{rm.GetString("signed")}: ";
+            btn_login.Text = rm.GetString("login");
+            btn_admin_panel.Text = rm.GetString("manage");
+            btn_delete_account.Text = rm.GetString("deleteuser");
+            btn_logout.Text = rm.GetString("logout");
+            btn_search.Text = rm.GetString("search");
+            btn_sell_book.Text = rm.GetString("sell");
+            cmb_stock_filter.Items[cmb_stock_filter.FindStringExact("All")] = rm.GetString("all");
+            cmb_stock_filter.Items[cmb_stock_filter.FindStringExact("In Stock")] = rm.GetString("instock");
+            cmb_stock_filter.Items[cmb_stock_filter.FindStringExact("Out of Stock")] = rm.GetString("outstock");
+            lbl_not_signed.Text = rm.GetString("notsigned");
+            cmb_type.Items[cmb_type.FindStringExact("Name")] = rm.GetString("name");
+            cmb_type.Items[cmb_type.FindStringExact("Category")] = rm.GetString("category");
+            cmb_type.Items[cmb_type.FindStringExact("Author")] = rm.GetString("author");
+            cmb_type.Items[cmb_type.FindStringExact("Language")] = rm.GetString("language");
+        }
+
         private void ShopCenter_Load(object sender, EventArgs e)
         {
             StartPointY = pnl_body.AutoScrollPosition.Y;
@@ -46,8 +80,8 @@ namespace BookShopManagementSystem
             user = _userController.GetUserDataFromLocal();
             if (user == null)
             {
-                lbl_user.Text = "Not signed in";
-                lbl_user.ForeColor = Color.Maroon;
+                lbl_user.Visible = false;
+                lbl_not_signed.Visible = true;
                 //lbl_bought_books.Text += " 0";
                 lbl_budget.Visible = false;
                 btn_logout.Visible = false;
@@ -77,7 +111,9 @@ namespace BookShopManagementSystem
                 }
                 btn_login.Visible = false;
                 btn_login.Enabled = false;
-                lbl_user.Text += $"{user.Name.ToUpper()} {user.Surname.ToUpper()}";
+                lbl_user.Visible = true;
+                lbl_not_signed.Visible = false;
+                lbl_user.Text += $"{user.Name.Substring(0, 1).ToString() + user.Name.Substring(1)} {user.Surname.Substring(0, 1) + user.Surname.Substring(1)}";
                 lbl_budget.Text += $" {user.Budget.ToString("C")}";
             }
 
@@ -114,20 +150,20 @@ namespace BookShopManagementSystem
 
         private void btn_search_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(tb_query.Text))
+            //if (!String.IsNullOrEmpty(tb_query.Text))
+            //{
+            StartPointX = 236;
+            StartPointY = pnl_body.AutoScrollPosition.Y;
+            string query = tb_query.Text.Trim();
+            int type = cmb_type.SelectedIndex;
+            int inStock = cmb_stock_filter.SelectedIndex;
+            books = _bookController.GetBookByQuery(query, type, inStock);
+            pnl_body.Controls.Clear();
+            foreach (var book in books)
             {
-                StartPointX = 236;
-                StartPointY = pnl_body.AutoScrollPosition.Y;
-                string query = tb_query.Text.Trim();
-                string type = cmb_type.SelectedItem.ToString();
-                string inStock = cmb_stock_filter.SelectedItem.ToString();
-                books = _bookController.GetBookByQuery(query, type, inStock);
-                pnl_body.Controls.Clear();
-                foreach (var book in books)
-                {
-                    GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
-                }
+                GenerateItem(book.Id, book.Name, book.Author, book.Description, book.Category, book.PublishedDate.ToString("yyyy MMMM dd"), book.Language, book.Stock, book.Price, book.Image.Data);
             }
+            //}
         }
 
         private void btn_admin_panel_Click(object sender, EventArgs e)
@@ -141,7 +177,7 @@ namespace BookShopManagementSystem
             user = _userController.GetUserDataFromLocal();
             if (user != null)
             {
-                lbl_budget.Text = $"Budget: {user.Budget.ToString("C")}";
+                lbl_budget.Text = lang == "AZE" ? $"Büdcə: {user.Budget.ToString("C")}" : $"Budget: {user.Budget.ToString("C")}";
             }
 
             tb_query.Text = "";
@@ -305,6 +341,11 @@ namespace BookShopManagementSystem
             button.TabIndex = 6;
             button.Text = "More...";
             button.BackColor = Color.WhiteSmoke;
+            if (user == null)
+            {
+                button.Visible = false;
+                button.Enabled = false;
+            }
             button.Click += new EventHandler(delegate (object sender, EventArgs e)
             {
                 BookDetail bd = new BookDetail(id, title, auth, desc, category, pd, language, stock, price, bytes);
@@ -425,7 +466,5 @@ namespace BookShopManagementSystem
             this.Hide();
             home.Show();
         }
-
-
     }
 }

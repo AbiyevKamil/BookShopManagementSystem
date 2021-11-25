@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -19,15 +20,25 @@ namespace BookShopManagementSystem
         private readonly Regex _emailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
         private Home home;
         private Button btn_login;
-        public Register(Home home, Button btn_login)
+        private ResourceManager rm;
+        public Register(Home home, Button btn_login, ResourceManager rm)
         {
             InitializeComponent();
             this.home = home;
             this.btn_login = btn_login;
+            this.rm = rm;
         }
 
         private void Register_Load(object sender, EventArgs e)
         {
+            lbl_adress.Text = $"{rm.GetString("address")}:";
+            lbl_email.Text = $"{rm.GetString("email")}:";
+            lbl_name.Text = $"{rm.GetString("name")}:";
+            lbl_pass.Text = $"{rm.GetString("password")}:";
+            lbl_pass_again.Text = $"{rm.GetString("password2")}:";
+            btn_register.Text = rm.GetString("register");
+            cb_show_pass.Text = rm.GetString("showpass");
+            cb_is_seller.Text = rm.GetString("imseller");
             tb_pass.PasswordChar = '•';
             tb_pass_confirm.PasswordChar = '•';
             pnl_form.AutoScroll = true;

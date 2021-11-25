@@ -123,8 +123,17 @@
   <data name="address" xml:space="preserve">
     <value>Ünvan</value>
   </data>
+  <data name="all" xml:space="preserve">
+    <value>Hamısı</value>
+  </data>
+  <data name="author" xml:space="preserve">
+    <value>Yazıçı</value>
+  </data>
   <data name="budget" xml:space="preserve">
-    <value>büdcə</value>
+    <value>Büdcə</value>
+  </data>
+  <data name="category" xml:space="preserve">
+    <value>Kateqoriya</value>
   </data>
   <data name="choose" xml:space="preserve">
     <value>Seç</value>
@@ -147,8 +156,14 @@
   <data name="imseller" xml:space="preserve">
     <value>Satıcıyam</value>
   </data>
+  <data name="instock" xml:space="preserve">
+    <value>Anbarda</value>
+  </data>
   <data name="keep" xml:space="preserve">
     <value>Məni unutma</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Dil</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Daxil ol</value>
@@ -161,6 +176,12 @@
   </data>
   <data name="name" xml:space="preserve">
     <value>Ad</value>
+  </data>
+  <data name="notsigned" xml:space="preserve">
+    <value>Daxil olunmayıb</value>
+  </data>
+  <data name="outstock" xml:space="preserve">
+    <value>Anbarda deyil</value>
   </data>
   <data name="password" xml:space="preserve">
     <value>Şifrə</value>
@@ -181,7 +202,7 @@
     <value>Şifrəni göstər</value>
   </data>
   <data name="signed" xml:space="preserve">
-    <value>kimi daxil olundu</value>
+    <value>İstifadəçi adı</value>
   </data>
   <data name="update" xml:space="preserve">
     <value>Güncəllə</value>

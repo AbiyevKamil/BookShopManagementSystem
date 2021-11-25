@@ -30,6 +30,7 @@ namespace BookShopManagementSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loading));
             this.tmr_loading = new System.Windows.Forms.Timer(this.components);
             this.bw_load_db = new System.ComponentModel.BackgroundWorker();
             this.pb_loading = new System.Windows.Forms.ProgressBar();
@@ -61,6 +62,7 @@ namespace BookShopManagementSystem
             this.ControlBox = false;
             this.Controls.Add(this.pb_loading);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Loading";
