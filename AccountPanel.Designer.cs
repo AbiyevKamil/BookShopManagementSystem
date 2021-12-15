@@ -65,7 +65,7 @@ namespace BookShopManagementSystem
             this.pnl_dgw.Location = new System.Drawing.Point(2, 52);
             this.pnl_dgw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnl_dgw.Name = "pnl_dgw";
-            this.pnl_dgw.Size = new System.Drawing.Size(822, 527);
+            this.pnl_dgw.Size = new System.Drawing.Size(1024, 527);
             this.pnl_dgw.TabIndex = 1;
             // 
             // btn_refresh
@@ -77,7 +77,7 @@ namespace BookShopManagementSystem
             this.btn_refresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_refresh.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_refresh.ForeColor = System.Drawing.Color.White;
-            this.btn_refresh.Location = new System.Drawing.Point(635, 0);
+            this.btn_refresh.Location = new System.Drawing.Point(837, 0);
             this.btn_refresh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(187, 45);
@@ -110,7 +110,7 @@ namespace BookShopManagementSystem
             this.dgw_books.RowHeadersVisible = false;
             this.dgw_books.RowHeadersWidth = 51;
             this.dgw_books.RowTemplate.Height = 120;
-            this.dgw_books.Size = new System.Drawing.Size(822, 479);
+            this.dgw_books.Size = new System.Drawing.Size(1024, 479);
             this.dgw_books.TabIndex = 4;
             // 
             // btn_add
@@ -173,7 +173,7 @@ namespace BookShopManagementSystem
             this.btn_delete_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_delete_account.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete_account.ForeColor = System.Drawing.Color.White;
-            this.btn_delete_account.Location = new System.Drawing.Point(637, -1);
+            this.btn_delete_account.Location = new System.Drawing.Point(839, -1);
             this.btn_delete_account.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_delete_account.Name = "btn_delete_account";
             this.btn_delete_account.Size = new System.Drawing.Size(187, 45);
@@ -275,7 +275,7 @@ namespace BookShopManagementSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 581);
+            this.ClientSize = new System.Drawing.Size(1026, 581);
             this.Controls.Add(this.btn_delete_account);
             this.Controls.Add(this.pnl_dgw);
             this.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
